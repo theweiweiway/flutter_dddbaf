@@ -81,3 +81,9 @@ Google Analytics
 ## TODO
 
 1. Create a firebase project and add the correspnoding google .plist and .json files for iOS and android respectively
+
+## Setup
+
+- added the line `pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '6.26.0'` between the lines `target 'Runner' do` and `use_frameworks!` in `ios/Podfile` - [This improves iOS Build for Firebase](https://firebase.flutter.dev/docs/overview/)
+
+## Problems Encountered
