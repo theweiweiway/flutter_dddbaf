@@ -30,8 +30,11 @@ GetIt $initGetIt(
   gh.lazySingleton<SharedPreferencesService>(() => SharedPreferencesService());
   gh.lazySingleton<AuthAnalytics>(() =>
       AuthAnalytics(get<FirebaseService>(), get<SharedPreferencesService>()));
-  gh.lazySingleton<AuthApi>(
-      () => AuthApi(get<FirebaseService>(), get<FirestoreService>()));
+  gh.lazySingleton<AuthApi>(() => AuthApi(
+        get<FirebaseService>(),
+        get<FirestoreService>(),
+        get<SharedPreferencesService>(),
+      ));
   gh.lazySingleton<AuthRepository>(() => AuthRepository(get<AuthApi>()));
 
   // Eager singletons must be registered in the right order
