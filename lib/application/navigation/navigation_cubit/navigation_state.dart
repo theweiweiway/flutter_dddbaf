@@ -10,6 +10,7 @@ abstract class NavigationState with _$NavigationState {
     @Default(true) bool visible,
     List<Page> authPages,
     List<Page> accountPages,
+    List<Page> searchPages,
   }) = _NavigationState;
   factory NavigationState.initial() => NavigationState(
         navigator: ENavigator.search,

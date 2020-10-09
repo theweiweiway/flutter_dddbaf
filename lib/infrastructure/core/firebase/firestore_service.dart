@@ -5,12 +5,10 @@ import 'package:injectable/injectable.dart';
 class FirestoreService {
   FirebaseFirestore get firestore => FirebaseFirestore.instance;
   FirestoreCollections get collections => FirestoreCollections(
-      users: FirebaseFirestore.instance.collection('users'),
-      groups: FirebaseFirestore.instance.collection('users'));
+      users: FirebaseFirestore.instance.collection('users'),);
 }
 
 class FirestoreCollections {
   CollectionReference users;
-  CollectionReference groups;
-  FirestoreCollections({this.users, this.groups});
+  FirestoreCollections({this.users});
 }

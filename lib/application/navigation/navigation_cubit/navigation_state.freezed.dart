@@ -18,12 +18,14 @@ class _$NavigationStateTearOff {
       {ENavigator navigator = ENavigator.search,
       bool visible = true,
       List<Page> authPages,
-      List<Page> accountPages}) {
+      List<Page> accountPages,
+      List<Page> searchPages}) {
     return _NavigationState(
       navigator: navigator,
       visible: visible,
       authPages: authPages,
       accountPages: accountPages,
+      searchPages: searchPages,
     );
   }
 }
@@ -38,6 +40,7 @@ mixin _$NavigationState {
   bool get visible;
   List<Page> get authPages;
   List<Page> get accountPages;
+  List<Page> get searchPages;
 
   $NavigationStateCopyWith<NavigationState> get copyWith;
 }
@@ -51,7 +54,8 @@ abstract class $NavigationStateCopyWith<$Res> {
       {ENavigator navigator,
       bool visible,
       List<Page> authPages,
-      List<Page> accountPages});
+      List<Page> accountPages,
+      List<Page> searchPages});
 }
 
 /// @nodoc
@@ -69,6 +73,7 @@ class _$NavigationStateCopyWithImpl<$Res>
     Object visible = freezed,
     Object authPages = freezed,
     Object accountPages = freezed,
+    Object searchPages = freezed,
   }) {
     return _then(_value.copyWith(
       navigator:
@@ -79,6 +84,9 @@ class _$NavigationStateCopyWithImpl<$Res>
       accountPages: accountPages == freezed
           ? _value.accountPages
           : accountPages as List<Page>,
+      searchPages: searchPages == freezed
+          ? _value.searchPages
+          : searchPages as List<Page>,
     ));
   }
 }
@@ -94,7 +102,8 @@ abstract class _$NavigationStateCopyWith<$Res>
       {ENavigator navigator,
       bool visible,
       List<Page> authPages,
-      List<Page> accountPages});
+      List<Page> accountPages,
+      List<Page> searchPages});
 }
 
 /// @nodoc
@@ -114,6 +123,7 @@ class __$NavigationStateCopyWithImpl<$Res>
     Object visible = freezed,
     Object authPages = freezed,
     Object accountPages = freezed,
+    Object searchPages = freezed,
   }) {
     return _then(_NavigationState(
       navigator:
@@ -124,6 +134,9 @@ class __$NavigationStateCopyWithImpl<$Res>
       accountPages: accountPages == freezed
           ? _value.accountPages
           : accountPages as List<Page>,
+      searchPages: searchPages == freezed
+          ? _value.searchPages
+          : searchPages as List<Page>,
     ));
   }
 }
@@ -134,7 +147,8 @@ class _$_NavigationState implements _NavigationState {
       {this.navigator = ENavigator.search,
       this.visible = true,
       this.authPages,
-      this.accountPages})
+      this.accountPages,
+      this.searchPages})
       : assert(navigator != null),
         assert(visible != null);
 
@@ -148,10 +162,12 @@ class _$_NavigationState implements _NavigationState {
   final List<Page> authPages;
   @override
   final List<Page> accountPages;
+  @override
+  final List<Page> searchPages;
 
   @override
   String toString() {
-    return 'NavigationState(navigator: $navigator, visible: $visible, authPages: $authPages, accountPages: $accountPages)';
+    return 'NavigationState(navigator: $navigator, visible: $visible, authPages: $authPages, accountPages: $accountPages, searchPages: $searchPages)';
   }
 
   @override
@@ -169,7 +185,10 @@ class _$_NavigationState implements _NavigationState {
                     .equals(other.authPages, authPages)) &&
             (identical(other.accountPages, accountPages) ||
                 const DeepCollectionEquality()
-                    .equals(other.accountPages, accountPages)));
+                    .equals(other.accountPages, accountPages)) &&
+            (identical(other.searchPages, searchPages) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchPages, searchPages)));
   }
 
   @override
@@ -178,7 +197,8 @@ class _$_NavigationState implements _NavigationState {
       const DeepCollectionEquality().hash(navigator) ^
       const DeepCollectionEquality().hash(visible) ^
       const DeepCollectionEquality().hash(authPages) ^
-      const DeepCollectionEquality().hash(accountPages);
+      const DeepCollectionEquality().hash(accountPages) ^
+      const DeepCollectionEquality().hash(searchPages);
 
   @override
   _$NavigationStateCopyWith<_NavigationState> get copyWith =>
@@ -190,7 +210,8 @@ abstract class _NavigationState implements NavigationState {
       {ENavigator navigator,
       bool visible,
       List<Page> authPages,
-      List<Page> accountPages}) = _$_NavigationState;
+      List<Page> accountPages,
+      List<Page> searchPages}) = _$_NavigationState;
 
   @override
   ENavigator get navigator;
@@ -200,6 +221,8 @@ abstract class _NavigationState implements NavigationState {
   List<Page> get authPages;
   @override
   List<Page> get accountPages;
+  @override
+  List<Page> get searchPages;
   @override
   _$NavigationStateCopyWith<_NavigationState> get copyWith;
 }
