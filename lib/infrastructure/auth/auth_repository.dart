@@ -9,6 +9,18 @@ class AuthRepository {
   AuthApi _authApi;
   AuthRepository(this._authApi);
 
+  Future<Either<AuthFailure, UserCredential>> checkIfUsernameInUse(
+      String username) async {
+    // return await _authApi.createUserWithEmailAndPassword(
+    //     email, password, username);
+  }
+
+  Future<Either<AuthFailure, UserCredential>> checkIfEmailInUse(
+      String email) async {
+    // return await _authApi.createUserWithEmailAndPassword(
+    //     email, password, username);
+  }
+
   Future<Either<AuthFailure, UserCredential>> createUserWithEmailAndPassword(
       String email, String password, String username) async {
     return await _authApi.createUserWithEmailAndPassword(

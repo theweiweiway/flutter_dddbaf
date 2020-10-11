@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dddbf/domain/navigation/navigators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "navigation_state.freezed.dart";
@@ -12,17 +13,9 @@ abstract class NavigationState with _$NavigationState {
     List<Page> accountPages,
     List<Page> searchPages,
   }) = _NavigationState;
+
   factory NavigationState.initial() => NavigationState(
         navigator: ENavigator.search,
         visible: true,
       );
-}
-
-enum ENavigator {
-  @JsonValue('SEARCH')
-  search,
-  @JsonValue('ACCOUNT')
-  account,
-  @JsonValue('AUTH')
-  auth,
 }

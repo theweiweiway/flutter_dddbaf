@@ -12,7 +12,6 @@ UtmParameters _$UtmParametersFromJson(Map<String, dynamic> json) {
   return _UtmParameters.fromJson(json);
 }
 
-/// @nodoc
 class _$UtmParametersTearOff {
   const _$UtmParametersTearOff();
 
@@ -31,18 +30,11 @@ class _$UtmParametersTearOff {
       content: content,
     );
   }
-
-// ignore: unused_element
-  UtmParameters fromJson(Map<String, Object> json) {
-    return UtmParameters.fromJson(json);
-  }
 }
 
-/// @nodoc
 // ignore: unused_element
 const $UtmParameters = _$UtmParametersTearOff();
 
-/// @nodoc
 mixin _$UtmParameters {
   String get source;
   String get medium;
@@ -54,7 +46,6 @@ mixin _$UtmParameters {
   $UtmParametersCopyWith<UtmParameters> get copyWith;
 }
 
-/// @nodoc
 abstract class $UtmParametersCopyWith<$Res> {
   factory $UtmParametersCopyWith(
           UtmParameters value, $Res Function(UtmParameters) then) =
@@ -63,7 +54,6 @@ abstract class $UtmParametersCopyWith<$Res> {
       {String source, String medium, String name, String term, String content});
 }
 
-/// @nodoc
 class _$UtmParametersCopyWithImpl<$Res>
     implements $UtmParametersCopyWith<$Res> {
   _$UtmParametersCopyWithImpl(this._value, this._then);
@@ -90,7 +80,6 @@ class _$UtmParametersCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 abstract class _$UtmParametersCopyWith<$Res>
     implements $UtmParametersCopyWith<$Res> {
   factory _$UtmParametersCopyWith(
@@ -101,7 +90,6 @@ abstract class _$UtmParametersCopyWith<$Res>
       {String source, String medium, String name, String term, String content});
 }
 
-/// @nodoc
 class __$UtmParametersCopyWithImpl<$Res>
     extends _$UtmParametersCopyWithImpl<$Res>
     implements _$UtmParametersCopyWith<$Res> {
@@ -131,8 +119,6 @@ class __$UtmParametersCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$_UtmParameters implements _UtmParameters {
   const _$_UtmParameters(
       {@required this.source,

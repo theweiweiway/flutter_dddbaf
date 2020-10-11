@@ -1,3 +1,5 @@
+import 'package:flutter_dddbf/domain/auth/auth_failure/auth_failure.dart';
+import 'package:flutter_dddbf/domain/core/success/success.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "auth_state.freezed.dart";
@@ -6,9 +8,8 @@ part "auth_state.freezed.dart";
 abstract class AuthState with _$AuthState {
   const factory AuthState.loggedOut({
     @Default(false) bool loading,
-    // Failure failure, // triggers flushbar
-    // Success success,
-    // LoginFailure loginFailure, // does not trigger flushbar. Triggers redirect
+    AuthFailure failure, // triggers flushbar
+    Success success,
   }) = LoggedOut;
 
   const factory AuthState.loggedIn({

@@ -20,6 +20,8 @@ AuthFailure _$AuthFailureFromJson(Map<String, dynamic> json) {
       return WeakPassword.fromJson(json);
     case 'emailAlreadyInUse':
       return EmailAlreadyInUse.fromJson(json);
+    case 'usernameAlreadyInUse':
+      return UsernameAlreadyInUse.fromJson(json);
     case 'invalidEmail':
       return InvalidEmail.fromJson(json);
     case 'expiredActionCode':
@@ -36,7 +38,6 @@ AuthFailure _$AuthFailureFromJson(Map<String, dynamic> json) {
   }
 }
 
-/// @nodoc
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
 
@@ -66,6 +67,11 @@ class _$AuthFailureTearOff {
   }
 
 // ignore: unused_element
+  UsernameAlreadyInUse usernameAlreadyInUse() {
+    return const UsernameAlreadyInUse();
+  }
+
+// ignore: unused_element
   InvalidEmail invalidEmail() {
     return const InvalidEmail();
   }
@@ -89,18 +95,11 @@ class _$AuthFailureTearOff {
   GenericError genericError() {
     return const GenericError();
   }
-
-// ignore: unused_element
-  AuthFailure fromJson(Map<String, Object> json) {
-    return AuthFailure.fromJson(json);
-  }
 }
 
-/// @nodoc
 // ignore: unused_element
 const $AuthFailure = _$AuthFailureTearOff();
 
-/// @nodoc
 mixin _$AuthFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -109,6 +108,7 @@ mixin _$AuthFailure {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -122,6 +122,7 @@ mixin _$AuthFailure {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -136,6 +137,7 @@ mixin _$AuthFailure {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -149,6 +151,7 @@ mixin _$AuthFailure {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -159,14 +162,12 @@ mixin _$AuthFailure {
   Map<String, dynamic> toJson();
 }
 
-/// @nodoc
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
       _$AuthFailureCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
@@ -175,14 +176,12 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   final $Res Function(AuthFailure) _then;
 }
 
-/// @nodoc
 abstract class $UserNotFoundCopyWith<$Res> {
   factory $UserNotFoundCopyWith(
           UserNotFound value, $Res Function(UserNotFound) then) =
       _$UserNotFoundCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$UserNotFoundCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $UserNotFoundCopyWith<$Res> {
   _$UserNotFoundCopyWithImpl(
@@ -194,8 +193,6 @@ class _$UserNotFoundCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$UserNotFound extends UserNotFound {
   const _$UserNotFound() : super._();
 
@@ -223,6 +220,7 @@ class _$UserNotFound extends UserNotFound {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -234,6 +232,7 @@ class _$UserNotFound extends UserNotFound {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -250,6 +249,7 @@ class _$UserNotFound extends UserNotFound {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -272,6 +272,7 @@ class _$UserNotFound extends UserNotFound {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -283,6 +284,7 @@ class _$UserNotFound extends UserNotFound {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -299,6 +301,7 @@ class _$UserNotFound extends UserNotFound {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -327,14 +330,12 @@ abstract class UserNotFound extends AuthFailure {
       _$UserNotFound.fromJson;
 }
 
-/// @nodoc
 abstract class $UserDisabledCopyWith<$Res> {
   factory $UserDisabledCopyWith(
           UserDisabled value, $Res Function(UserDisabled) then) =
       _$UserDisabledCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$UserDisabledCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $UserDisabledCopyWith<$Res> {
   _$UserDisabledCopyWithImpl(
@@ -346,8 +347,6 @@ class _$UserDisabledCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$UserDisabled extends UserDisabled {
   const _$UserDisabled() : super._();
 
@@ -375,6 +374,7 @@ class _$UserDisabled extends UserDisabled {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -386,6 +386,7 @@ class _$UserDisabled extends UserDisabled {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -402,6 +403,7 @@ class _$UserDisabled extends UserDisabled {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -424,6 +426,7 @@ class _$UserDisabled extends UserDisabled {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -435,6 +438,7 @@ class _$UserDisabled extends UserDisabled {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -451,6 +455,7 @@ class _$UserDisabled extends UserDisabled {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -479,14 +484,12 @@ abstract class UserDisabled extends AuthFailure {
       _$UserDisabled.fromJson;
 }
 
-/// @nodoc
 abstract class $WrongPasswordCopyWith<$Res> {
   factory $WrongPasswordCopyWith(
           WrongPassword value, $Res Function(WrongPassword) then) =
       _$WrongPasswordCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$WrongPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $WrongPasswordCopyWith<$Res> {
   _$WrongPasswordCopyWithImpl(
@@ -498,8 +501,6 @@ class _$WrongPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$WrongPassword extends WrongPassword {
   const _$WrongPassword() : super._();
 
@@ -527,6 +528,7 @@ class _$WrongPassword extends WrongPassword {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -538,6 +540,7 @@ class _$WrongPassword extends WrongPassword {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -554,6 +557,7 @@ class _$WrongPassword extends WrongPassword {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -576,6 +580,7 @@ class _$WrongPassword extends WrongPassword {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -587,6 +592,7 @@ class _$WrongPassword extends WrongPassword {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -603,6 +609,7 @@ class _$WrongPassword extends WrongPassword {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -631,14 +638,12 @@ abstract class WrongPassword extends AuthFailure {
       _$WrongPassword.fromJson;
 }
 
-/// @nodoc
 abstract class $WeakPasswordCopyWith<$Res> {
   factory $WeakPasswordCopyWith(
           WeakPassword value, $Res Function(WeakPassword) then) =
       _$WeakPasswordCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$WeakPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $WeakPasswordCopyWith<$Res> {
   _$WeakPasswordCopyWithImpl(
@@ -650,8 +655,6 @@ class _$WeakPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$WeakPassword extends WeakPassword {
   const _$WeakPassword() : super._();
 
@@ -679,6 +682,7 @@ class _$WeakPassword extends WeakPassword {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -690,6 +694,7 @@ class _$WeakPassword extends WeakPassword {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -706,6 +711,7 @@ class _$WeakPassword extends WeakPassword {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -728,6 +734,7 @@ class _$WeakPassword extends WeakPassword {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -739,6 +746,7 @@ class _$WeakPassword extends WeakPassword {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -755,6 +763,7 @@ class _$WeakPassword extends WeakPassword {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -783,14 +792,12 @@ abstract class WeakPassword extends AuthFailure {
       _$WeakPassword.fromJson;
 }
 
-/// @nodoc
 abstract class $EmailAlreadyInUseCopyWith<$Res> {
   factory $EmailAlreadyInUseCopyWith(
           EmailAlreadyInUse value, $Res Function(EmailAlreadyInUse) then) =
       _$EmailAlreadyInUseCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$EmailAlreadyInUseCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $EmailAlreadyInUseCopyWith<$Res> {
@@ -803,8 +810,6 @@ class _$EmailAlreadyInUseCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$EmailAlreadyInUse extends EmailAlreadyInUse {
   const _$EmailAlreadyInUse() : super._();
 
@@ -832,6 +837,7 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -843,6 +849,7 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -859,6 +866,7 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -881,6 +889,7 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -892,6 +901,7 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -908,6 +918,7 @@ class _$EmailAlreadyInUse extends EmailAlreadyInUse {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -937,14 +948,168 @@ abstract class EmailAlreadyInUse extends AuthFailure {
       _$EmailAlreadyInUse.fromJson;
 }
 
-/// @nodoc
+abstract class $UsernameAlreadyInUseCopyWith<$Res> {
+  factory $UsernameAlreadyInUseCopyWith(UsernameAlreadyInUse value,
+          $Res Function(UsernameAlreadyInUse) then) =
+      _$UsernameAlreadyInUseCopyWithImpl<$Res>;
+}
+
+class _$UsernameAlreadyInUseCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UsernameAlreadyInUseCopyWith<$Res> {
+  _$UsernameAlreadyInUseCopyWithImpl(
+      UsernameAlreadyInUse _value, $Res Function(UsernameAlreadyInUse) _then)
+      : super(_value, (v) => _then(v as UsernameAlreadyInUse));
+
+  @override
+  UsernameAlreadyInUse get _value => super._value as UsernameAlreadyInUse;
+}
+
+@JsonSerializable()
+class _$UsernameAlreadyInUse extends UsernameAlreadyInUse {
+  const _$UsernameAlreadyInUse() : super._();
+
+  factory _$UsernameAlreadyInUse.fromJson(Map<String, dynamic> json) =>
+      _$_$UsernameAlreadyInUseFromJson(json);
+
+  @override
+  String toString() {
+    return 'AuthFailure.usernameAlreadyInUse()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UsernameAlreadyInUse);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result userNotFound(),
+    @required Result userDisabled(),
+    @required Result wrongPassword(),
+    @required Result weakPassword(),
+    @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
+    @required Result invalidEmail(),
+    @required Result expiredActionCode(),
+    @required Result invalidActionCode(),
+    @required Result internalServerError(),
+    @required Result genericError(),
+  }) {
+    assert(userNotFound != null);
+    assert(userDisabled != null);
+    assert(wrongPassword != null);
+    assert(weakPassword != null);
+    assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
+    assert(invalidEmail != null);
+    assert(expiredActionCode != null);
+    assert(invalidActionCode != null);
+    assert(internalServerError != null);
+    assert(genericError != null);
+    return usernameAlreadyInUse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result userNotFound(),
+    Result userDisabled(),
+    Result wrongPassword(),
+    Result weakPassword(),
+    Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
+    Result invalidEmail(),
+    Result expiredActionCode(),
+    Result invalidActionCode(),
+    Result internalServerError(),
+    Result genericError(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (usernameAlreadyInUse != null) {
+      return usernameAlreadyInUse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result userNotFound(UserNotFound value),
+    @required Result userDisabled(UserDisabled value),
+    @required Result wrongPassword(WrongPassword value),
+    @required Result weakPassword(WeakPassword value),
+    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
+    @required Result invalidEmail(InvalidEmail value),
+    @required Result expiredActionCode(ExpiredActionCode value),
+    @required Result invalidActionCode(InvalidActionCode value),
+    @required Result internalServerError(InternalServerError value),
+    @required Result genericError(GenericError value),
+  }) {
+    assert(userNotFound != null);
+    assert(userDisabled != null);
+    assert(wrongPassword != null);
+    assert(weakPassword != null);
+    assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
+    assert(invalidEmail != null);
+    assert(expiredActionCode != null);
+    assert(invalidActionCode != null);
+    assert(internalServerError != null);
+    assert(genericError != null);
+    return usernameAlreadyInUse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result userNotFound(UserNotFound value),
+    Result userDisabled(UserDisabled value),
+    Result wrongPassword(WrongPassword value),
+    Result weakPassword(WeakPassword value),
+    Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
+    Result invalidEmail(InvalidEmail value),
+    Result expiredActionCode(ExpiredActionCode value),
+    Result invalidActionCode(InvalidActionCode value),
+    Result internalServerError(InternalServerError value),
+    Result genericError(GenericError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (usernameAlreadyInUse != null) {
+      return usernameAlreadyInUse(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$UsernameAlreadyInUseToJson(this)
+      ..['runtimeType'] = 'usernameAlreadyInUse';
+  }
+}
+
+abstract class UsernameAlreadyInUse extends AuthFailure {
+  const UsernameAlreadyInUse._() : super._();
+  const factory UsernameAlreadyInUse() = _$UsernameAlreadyInUse;
+
+  factory UsernameAlreadyInUse.fromJson(Map<String, dynamic> json) =
+      _$UsernameAlreadyInUse.fromJson;
+}
+
 abstract class $InvalidEmailCopyWith<$Res> {
   factory $InvalidEmailCopyWith(
           InvalidEmail value, $Res Function(InvalidEmail) then) =
       _$InvalidEmailCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$InvalidEmailCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $InvalidEmailCopyWith<$Res> {
   _$InvalidEmailCopyWithImpl(
@@ -956,8 +1121,6 @@ class _$InvalidEmailCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$InvalidEmail extends InvalidEmail {
   const _$InvalidEmail() : super._();
 
@@ -985,6 +1148,7 @@ class _$InvalidEmail extends InvalidEmail {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -996,6 +1160,7 @@ class _$InvalidEmail extends InvalidEmail {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1012,6 +1177,7 @@ class _$InvalidEmail extends InvalidEmail {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -1034,6 +1200,7 @@ class _$InvalidEmail extends InvalidEmail {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -1045,6 +1212,7 @@ class _$InvalidEmail extends InvalidEmail {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1061,6 +1229,7 @@ class _$InvalidEmail extends InvalidEmail {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -1089,14 +1258,12 @@ abstract class InvalidEmail extends AuthFailure {
       _$InvalidEmail.fromJson;
 }
 
-/// @nodoc
 abstract class $ExpiredActionCodeCopyWith<$Res> {
   factory $ExpiredActionCodeCopyWith(
           ExpiredActionCode value, $Res Function(ExpiredActionCode) then) =
       _$ExpiredActionCodeCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$ExpiredActionCodeCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $ExpiredActionCodeCopyWith<$Res> {
@@ -1109,8 +1276,6 @@ class _$ExpiredActionCodeCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$ExpiredActionCode extends ExpiredActionCode {
   const _$ExpiredActionCode() : super._();
 
@@ -1138,6 +1303,7 @@ class _$ExpiredActionCode extends ExpiredActionCode {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -1149,6 +1315,7 @@ class _$ExpiredActionCode extends ExpiredActionCode {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1165,6 +1332,7 @@ class _$ExpiredActionCode extends ExpiredActionCode {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -1187,6 +1355,7 @@ class _$ExpiredActionCode extends ExpiredActionCode {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -1198,6 +1367,7 @@ class _$ExpiredActionCode extends ExpiredActionCode {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1214,6 +1384,7 @@ class _$ExpiredActionCode extends ExpiredActionCode {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -1243,14 +1414,12 @@ abstract class ExpiredActionCode extends AuthFailure {
       _$ExpiredActionCode.fromJson;
 }
 
-/// @nodoc
 abstract class $InvalidActionCodeCopyWith<$Res> {
   factory $InvalidActionCodeCopyWith(
           InvalidActionCode value, $Res Function(InvalidActionCode) then) =
       _$InvalidActionCodeCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$InvalidActionCodeCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $InvalidActionCodeCopyWith<$Res> {
@@ -1263,8 +1432,6 @@ class _$InvalidActionCodeCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$InvalidActionCode extends InvalidActionCode {
   const _$InvalidActionCode() : super._();
 
@@ -1292,6 +1459,7 @@ class _$InvalidActionCode extends InvalidActionCode {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -1303,6 +1471,7 @@ class _$InvalidActionCode extends InvalidActionCode {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1319,6 +1488,7 @@ class _$InvalidActionCode extends InvalidActionCode {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -1341,6 +1511,7 @@ class _$InvalidActionCode extends InvalidActionCode {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -1352,6 +1523,7 @@ class _$InvalidActionCode extends InvalidActionCode {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1368,6 +1540,7 @@ class _$InvalidActionCode extends InvalidActionCode {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -1397,14 +1570,12 @@ abstract class InvalidActionCode extends AuthFailure {
       _$InvalidActionCode.fromJson;
 }
 
-/// @nodoc
 abstract class $InternalServerErrorCopyWith<$Res> {
   factory $InternalServerErrorCopyWith(
           InternalServerError value, $Res Function(InternalServerError) then) =
       _$InternalServerErrorCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$InternalServerErrorCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $InternalServerErrorCopyWith<$Res> {
@@ -1417,8 +1588,6 @@ class _$InternalServerErrorCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$InternalServerError extends InternalServerError {
   const _$InternalServerError() : super._();
 
@@ -1446,6 +1615,7 @@ class _$InternalServerError extends InternalServerError {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -1457,6 +1627,7 @@ class _$InternalServerError extends InternalServerError {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1473,6 +1644,7 @@ class _$InternalServerError extends InternalServerError {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -1495,6 +1667,7 @@ class _$InternalServerError extends InternalServerError {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -1506,6 +1679,7 @@ class _$InternalServerError extends InternalServerError {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1522,6 +1696,7 @@ class _$InternalServerError extends InternalServerError {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),
@@ -1551,14 +1726,12 @@ abstract class InternalServerError extends AuthFailure {
       _$InternalServerError.fromJson;
 }
 
-/// @nodoc
 abstract class $GenericErrorCopyWith<$Res> {
   factory $GenericErrorCopyWith(
           GenericError value, $Res Function(GenericError) then) =
       _$GenericErrorCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$GenericErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $GenericErrorCopyWith<$Res> {
   _$GenericErrorCopyWithImpl(
@@ -1570,8 +1743,6 @@ class _$GenericErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-
-/// @nodoc
 class _$GenericError extends GenericError {
   const _$GenericError() : super._();
 
@@ -1599,6 +1770,7 @@ class _$GenericError extends GenericError {
     @required Result wrongPassword(),
     @required Result weakPassword(),
     @required Result emailAlreadyInUse(),
+    @required Result usernameAlreadyInUse(),
     @required Result invalidEmail(),
     @required Result expiredActionCode(),
     @required Result invalidActionCode(),
@@ -1610,6 +1782,7 @@ class _$GenericError extends GenericError {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1626,6 +1799,7 @@ class _$GenericError extends GenericError {
     Result wrongPassword(),
     Result weakPassword(),
     Result emailAlreadyInUse(),
+    Result usernameAlreadyInUse(),
     Result invalidEmail(),
     Result expiredActionCode(),
     Result invalidActionCode(),
@@ -1648,6 +1822,7 @@ class _$GenericError extends GenericError {
     @required Result wrongPassword(WrongPassword value),
     @required Result weakPassword(WeakPassword value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     @required Result invalidEmail(InvalidEmail value),
     @required Result expiredActionCode(ExpiredActionCode value),
     @required Result invalidActionCode(InvalidActionCode value),
@@ -1659,6 +1834,7 @@ class _$GenericError extends GenericError {
     assert(wrongPassword != null);
     assert(weakPassword != null);
     assert(emailAlreadyInUse != null);
+    assert(usernameAlreadyInUse != null);
     assert(invalidEmail != null);
     assert(expiredActionCode != null);
     assert(invalidActionCode != null);
@@ -1675,6 +1851,7 @@ class _$GenericError extends GenericError {
     Result wrongPassword(WrongPassword value),
     Result weakPassword(WeakPassword value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result usernameAlreadyInUse(UsernameAlreadyInUse value),
     Result invalidEmail(InvalidEmail value),
     Result expiredActionCode(ExpiredActionCode value),
     Result invalidActionCode(InvalidActionCode value),

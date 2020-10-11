@@ -81,6 +81,7 @@ Google Analytics
 ## TODO
 
 1. Create a firebase project and add the correspnoding google .plist and .json files for iOS and android respectively
+2. Change the app title in main.dart to whatever your app is named
 
 ## Setup
 

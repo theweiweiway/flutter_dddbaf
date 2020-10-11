@@ -9,7 +9,6 @@ part of 'navigation_state.dart';
 
 T _$identity<T>(T value) => value;
 
-/// @nodoc
 class _$NavigationStateTearOff {
   const _$NavigationStateTearOff();
 
@@ -30,11 +29,9 @@ class _$NavigationStateTearOff {
   }
 }
 
-/// @nodoc
 // ignore: unused_element
 const $NavigationState = _$NavigationStateTearOff();
 
-/// @nodoc
 mixin _$NavigationState {
   ENavigator get navigator;
   bool get visible;
@@ -45,7 +42,6 @@ mixin _$NavigationState {
   $NavigationStateCopyWith<NavigationState> get copyWith;
 }
 
-/// @nodoc
 abstract class $NavigationStateCopyWith<$Res> {
   factory $NavigationStateCopyWith(
           NavigationState value, $Res Function(NavigationState) then) =
@@ -58,7 +54,6 @@ abstract class $NavigationStateCopyWith<$Res> {
       List<Page> searchPages});
 }
 
-/// @nodoc
 class _$NavigationStateCopyWithImpl<$Res>
     implements $NavigationStateCopyWith<$Res> {
   _$NavigationStateCopyWithImpl(this._value, this._then);
@@ -91,7 +86,6 @@ class _$NavigationStateCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 abstract class _$NavigationStateCopyWith<$Res>
     implements $NavigationStateCopyWith<$Res> {
   factory _$NavigationStateCopyWith(
@@ -106,7 +100,6 @@ abstract class _$NavigationStateCopyWith<$Res>
       List<Page> searchPages});
 }
 
-/// @nodoc
 class __$NavigationStateCopyWithImpl<$Res>
     extends _$NavigationStateCopyWithImpl<$Res>
     implements _$NavigationStateCopyWith<$Res> {
@@ -141,7 +134,6 @@ class __$NavigationStateCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 class _$_NavigationState implements _NavigationState {
   const _$_NavigationState(
       {this.navigator = ENavigator.search,

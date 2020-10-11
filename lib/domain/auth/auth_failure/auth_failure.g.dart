@@ -42,6 +42,15 @@ Map<String, dynamic> _$_$EmailAlreadyInUseToJson(
         _$EmailAlreadyInUse instance) =>
     <String, dynamic>{};
 
+_$UsernameAlreadyInUse _$_$UsernameAlreadyInUseFromJson(
+    Map<String, dynamic> json) {
+  return _$UsernameAlreadyInUse();
+}
+
+Map<String, dynamic> _$_$UsernameAlreadyInUseToJson(
+        _$UsernameAlreadyInUse instance) =>
+    <String, dynamic>{};
+
 _$InvalidEmail _$_$InvalidEmailFromJson(Map<String, dynamic> json) {
   return _$InvalidEmail();
 }

@@ -9,14 +9,16 @@ part of 'auth_state.dart';
 
 T _$identity<T>(T value) => value;
 
-/// @nodoc
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
 // ignore: unused_element
-  LoggedOut loggedOut({bool loading = false}) {
+  LoggedOut loggedOut(
+      {bool loading = false, AuthFailure failure, Success success}) {
     return LoggedOut(
       loading: loading,
+      failure: failure,
+      success: success,
     );
   }
 
@@ -29,20 +31,19 @@ class _$AuthStateTearOff {
   }
 }
 
-/// @nodoc
 // ignore: unused_element
 const $AuthState = _$AuthStateTearOff();
 
-/// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result loggedOut(bool loading),
+    @required
+        Result loggedOut(bool loading, AuthFailure failure, Success success),
     @required Result loggedIn(String uid, String email),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result loggedOut(bool loading),
+    Result loggedOut(bool loading, AuthFailure failure, Success success),
     Result loggedIn(String uid, String email),
     @required Result orElse(),
   });
@@ -59,13 +60,11 @@ mixin _$AuthState {
   });
 }
 
-/// @nodoc
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
 }
 
-/// @nodoc
 class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   _$AuthStateCopyWithImpl(this._value, this._then);
 
@@ -74,14 +73,15 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   final $Res Function(AuthState) _then;
 }
 
-/// @nodoc
 abstract class $LoggedOutCopyWith<$Res> {
   factory $LoggedOutCopyWith(LoggedOut value, $Res Function(LoggedOut) then) =
       _$LoggedOutCopyWithImpl<$Res>;
-  $Res call({bool loading});
+  $Res call({bool loading, AuthFailure failure, Success success});
+
+  $AuthFailureCopyWith<$Res> get failure;
+  $SuccessCopyWith<$Res> get success;
 }
 
-/// @nodoc
 class _$LoggedOutCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     implements $LoggedOutCopyWith<$Res> {
   _$LoggedOutCopyWithImpl(LoggedOut _value, $Res Function(LoggedOut) _then)
@@ -93,24 +93,52 @@ class _$LoggedOutCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object loading = freezed,
+    Object failure = freezed,
+    Object success = freezed,
   }) {
     return _then(LoggedOut(
       loading: loading == freezed ? _value.loading : loading as bool,
+      failure: failure == freezed ? _value.failure : failure as AuthFailure,
+      success: success == freezed ? _value.success : success as Success,
     ));
+  }
+
+  @override
+  $AuthFailureCopyWith<$Res> get failure {
+    if (_value.failure == null) {
+      return null;
+    }
+    return $AuthFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+
+  @override
+  $SuccessCopyWith<$Res> get success {
+    if (_value.success == null) {
+      return null;
+    }
+    return $SuccessCopyWith<$Res>(_value.success, (value) {
+      return _then(_value.copyWith(success: value));
+    });
   }
 }
 
-/// @nodoc
 class _$LoggedOut implements LoggedOut {
-  const _$LoggedOut({this.loading = false}) : assert(loading != null);
+  const _$LoggedOut({this.loading = false, this.failure, this.success})
+      : assert(loading != null);
 
   @JsonKey(defaultValue: false)
   @override
   final bool loading;
+  @override
+  final AuthFailure failure;
+  @override
+  final Success success;
 
   @override
   String toString() {
-    return 'AuthState.loggedOut(loading: $loading)';
+    return 'AuthState.loggedOut(loading: $loading, failure: $failure, success: $success)';
   }
 
   @override
@@ -118,12 +146,21 @@ class _$LoggedOut implements LoggedOut {
     return identical(this, other) ||
         (other is LoggedOut &&
             (identical(other.loading, loading) ||
-                const DeepCollectionEquality().equals(other.loading, loading)));
+                const DeepCollectionEquality()
+                    .equals(other.loading, loading)) &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality()
+                    .equals(other.failure, failure)) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(loading);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(loading) ^
+      const DeepCollectionEquality().hash(failure) ^
+      const DeepCollectionEquality().hash(success);
 
   @override
   $LoggedOutCopyWith<LoggedOut> get copyWith =>
@@ -132,24 +169,25 @@ class _$LoggedOut implements LoggedOut {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result loggedOut(bool loading),
+    @required
+        Result loggedOut(bool loading, AuthFailure failure, Success success),
     @required Result loggedIn(String uid, String email),
   }) {
     assert(loggedOut != null);
     assert(loggedIn != null);
-    return loggedOut(loading);
+    return loggedOut(loading, failure, success);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result loggedOut(bool loading),
+    Result loggedOut(bool loading, AuthFailure failure, Success success),
     Result loggedIn(String uid, String email),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (loggedOut != null) {
-      return loggedOut(loading);
+      return loggedOut(loading, failure, success);
     }
     return orElse();
   }
@@ -181,20 +219,21 @@ class _$LoggedOut implements LoggedOut {
 }
 
 abstract class LoggedOut implements AuthState {
-  const factory LoggedOut({bool loading}) = _$LoggedOut;
+  const factory LoggedOut(
+      {bool loading, AuthFailure failure, Success success}) = _$LoggedOut;
 
   bool get loading;
+  AuthFailure get failure;
+  Success get success;
   $LoggedOutCopyWith<LoggedOut> get copyWith;
 }
 
-/// @nodoc
 abstract class $LoggedInCopyWith<$Res> {
   factory $LoggedInCopyWith(LoggedIn value, $Res Function(LoggedIn) then) =
       _$LoggedInCopyWithImpl<$Res>;
   $Res call({String uid, String email});
 }
 
-/// @nodoc
 class _$LoggedInCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     implements $LoggedInCopyWith<$Res> {
   _$LoggedInCopyWithImpl(LoggedIn _value, $Res Function(LoggedIn) _then)
@@ -215,7 +254,6 @@ class _$LoggedInCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 class _$LoggedIn implements LoggedIn {
   const _$LoggedIn({this.uid, this.email});
 
@@ -252,7 +290,8 @@ class _$LoggedIn implements LoggedIn {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result loggedOut(bool loading),
+    @required
+        Result loggedOut(bool loading, AuthFailure failure, Success success),
     @required Result loggedIn(String uid, String email),
   }) {
     assert(loggedOut != null);
@@ -263,7 +302,7 @@ class _$LoggedIn implements LoggedIn {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result loggedOut(bool loading),
+    Result loggedOut(bool loading, AuthFailure failure, Success success),
     Result loggedIn(String uid, String email),
     @required Result orElse(),
   }) {

@@ -15,6 +15,7 @@ import 'infrastructure/core/firebase/firebase_service.dart';
 import 'infrastructure/core/firebase/firestore_service.dart';
 import 'application/navigation/navigation_cubit/navigation_cubit.dart';
 import 'infrastructure/core/shared_preferences/shared_preferences_service.dart';
+import 'application/auth/sign_up_cubit/sign_up_cubit.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -36,6 +37,7 @@ GetIt $initGetIt(
         get<SharedPreferencesService>(),
       ));
   gh.lazySingleton<AuthRepository>(() => AuthRepository(get<AuthApi>()));
+  gh.lazySingleton<SignUpCubit>(() => SignUpCubit(get<AuthRepository>()));
 
   // Eager singletons must be registered in the right order
   gh.singleton<FirebaseService>(FirebaseService());

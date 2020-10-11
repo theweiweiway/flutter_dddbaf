@@ -15,6 +15,7 @@ abstract class AuthFailure with _$AuthFailure {
   // SIGN UP FAILURES
   const factory AuthFailure.weakPassword() = WeakPassword;
   const factory AuthFailure.emailAlreadyInUse() = EmailAlreadyInUse;
+  const factory AuthFailure.usernameAlreadyInUse() = UsernameAlreadyInUse;
   const factory AuthFailure.invalidEmail() = InvalidEmail;
 
   // ACTION CODE FAILURES

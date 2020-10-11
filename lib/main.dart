@@ -7,6 +7,7 @@ import 'package:flutter_dddbf/presentation/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dddbf/presentation/widgets/core/screens/loading_screen.dart';
 import 'package:injectable/injectable.dart';
 
 final env = kReleaseMode ? Environment.prod : Environment.test;
@@ -32,8 +33,9 @@ class MainApp extends StatelessWidget {
           }
           if (snapshot.connectionState == ConnectionState.done) {
             return MaterialApp(
+              title: "Flutter DDDBF",
+              debugShowCheckedModeBanner: env == Environment.dev ? true : false,
               navigatorObservers: [getIt<FirebaseService>().analyticsObserver],
-              title: 'Flutter DDDBF',
               theme: ThemeData(
                 primarySwatch: Colors.blueGrey[800],
                 visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -41,7 +43,7 @@ class MainApp extends StatelessWidget {
               home: App(),
             );
           }
-          return Center(child: Text('Firebase initializing...'));
+          return LoadingScreen();
         });
   }
 }

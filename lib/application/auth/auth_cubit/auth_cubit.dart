@@ -6,7 +6,11 @@ import 'package:injectable/injectable.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthState.loggedOut());
 
-  void signIn({String email, String password}) async {
+  void signInWithEmailAndPassword({String email, String password}) async {
     // emit(state.copyWith(navigator: navigator));
   }
+
+  void signIn() async {}
+
+  void signOut() async {}
 }
