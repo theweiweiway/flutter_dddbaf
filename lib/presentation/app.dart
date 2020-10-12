@@ -12,7 +12,6 @@ import 'package:flutter_dddbf/infrastructure/core/firebase/firebase_service.dart
 import 'package:flutter_dddbf/injection.dart';
 import 'package:flutter_dddbf/presentation/navigation/auth/auth_navigator.dart';
 import 'package:flutter_dddbf/presentation/navigation/widgets/fade_through_indexed_stack.dart';
-import 'package:injectable/injectable.dart';
 
 class App extends StatefulWidget {
   @override
@@ -91,14 +90,9 @@ class _AppState extends State<App> with WidgetsBindingObserver {
                 child: FadeThroughIndexedStack(
                   index: _getCurrentIndex(authState, navigationState),
                   children: <Widget>[
-                    touched.contains(ENavigator.auth)
-                        ? AuthNavigator()
-                        : Container(),
-                    SearchNavigator(),
-                    // Keeps track of which navigation stacks have already been opened to prevent fetching data from all stacks at app open
-                    touched.contains(ENavigator.account)
-                        ? AccountNavigator()
-                        : Container(),
+                    _getNavigatorWidget(ENavigator.auth, AuthNavigator()),
+                    // _getNavigatorWidget(ENavigator.auth, SearchNavigator()),
+                    // _getNavigatorWidget(ENavigator.account, AccountNavigator()),
                   ],
                 ),
               );
@@ -107,6 +101,10 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         },
       ),
     );
+  }
+
+  Widget _getNavigatorWidget(ENavigator navigator, Widget widget) {
+    return touched.contains(navigator) ? widget : Container();
   }
 
   int _getCurrentIndex(AuthState authState, NavigationState navigationState) {
