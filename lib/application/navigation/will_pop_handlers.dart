@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dddbf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
 
 import 'navigation_cubit/navigation_cubit.dart';
 

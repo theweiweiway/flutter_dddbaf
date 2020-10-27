@@ -1,5 +1,5 @@
-import 'package:flutter_dddbf/domain/auth/auth_failure/auth_failure.dart';
-import 'package:flutter_dddbf/infrastructure/auth/remote_data/auth_api.dart';
+import 'package:flutter_dddbaf/domain/auth/auth_failure/auth_failure.dart';
+import 'package:flutter_dddbaf/infrastructure/auth/remote_data/auth_api.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';

@@ -2,16 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dddbf/application/auth/auth_cubit/auth_cubit.dart';
-import 'package:flutter_dddbf/application/auth/auth_cubit/auth_state.dart';
-import 'package:flutter_dddbf/application/navigation/navigation_cubit/navigation_cubit.dart';
-import 'package:flutter_dddbf/application/navigation/navigation_cubit/navigation_state.dart';
-import 'package:flutter_dddbf/application/navigation/will_pop_handlers.dart';
-import 'package:flutter_dddbf/domain/navigation/navigators.dart';
-import 'package:flutter_dddbf/infrastructure/core/firebase/firebase_service.dart';
-import 'package:flutter_dddbf/injection.dart';
-import 'package:flutter_dddbf/presentation/navigation/auth/auth_navigator.dart';
-import 'package:flutter_dddbf/presentation/navigation/widgets/fade_through_indexed_stack.dart';
+import 'package:flutter_dddbaf/application/auth/auth_cubit/auth_cubit.dart';
+import 'package:flutter_dddbaf/application/auth/auth_cubit/auth_state.dart';
+import 'package:flutter_dddbaf/application/navigation/navigation_cubit/navigation_cubit.dart';
+import 'package:flutter_dddbaf/application/navigation/navigation_cubit/navigation_state.dart';
+import 'package:flutter_dddbaf/application/navigation/will_pop_handlers.dart';
+import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
+import 'package:flutter_dddbaf/injection.dart';
+import 'package:flutter_dddbaf/presentation/navigation/auth/auth_navigator.dart';
+import 'package:flutter_dddbaf/presentation/navigation/widgets/fade_through_indexed_stack.dart';
 
 class App extends StatefulWidget {
   @override

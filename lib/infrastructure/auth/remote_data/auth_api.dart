@@ -1,9 +1,9 @@
-import 'package:flutter_dddbf/domain/auth/auth_failure/auth_failure.dart';
-import 'package:flutter_dddbf/infrastructure/core/firebase/firebase_service.dart';
-import 'package:flutter_dddbf/infrastructure/core/firebase/firestore_service.dart';
+import 'package:flutter_dddbaf/domain/auth/auth_failure/auth_failure.dart';
+import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
+import 'package:flutter_dddbaf/infrastructure/core/firebase/firestore_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_dddbf/infrastructure/core/shared_preferences/shared_preferences_service.dart';
+import 'package:flutter_dddbaf/infrastructure/core/shared_preferences/shared_preferences_service.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton

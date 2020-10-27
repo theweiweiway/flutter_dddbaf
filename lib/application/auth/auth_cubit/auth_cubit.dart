@@ -1,4 +1,4 @@
-import 'package:flutter_dddbf/application/auth/auth_cubit/auth_state.dart';
+import 'package:flutter_dddbaf/application/auth/auth_cubit/auth_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 

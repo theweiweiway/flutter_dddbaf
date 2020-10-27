@@ -1,13 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dddbf/application/auth/auth_cubit/auth_cubit.dart';
-import 'package:flutter_dddbf/application/navigation/navigation_cubit/navigation_cubit.dart';
-import 'package:flutter_dddbf/infrastructure/core/firebase/firebase_service.dart';
-import 'package:flutter_dddbf/injection.dart';
-import 'package:flutter_dddbf/presentation/app.dart';
+import 'package:flutter_dddbaf/application/auth/auth_cubit/auth_cubit.dart';
+import 'package:flutter_dddbaf/application/navigation/navigation_cubit/navigation_cubit.dart';
+import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
+import 'package:flutter_dddbaf/injection.dart';
+import 'package:flutter_dddbaf/presentation/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dddbf/presentation/widgets/core/screens/loading_screen.dart';
+import 'package:flutter_dddbaf/presentation/widgets/core/screens/loading_screen.dart';
+import 'package:flutter_dddbaf/styles.dart';
 import 'package:injectable/injectable.dart';
 
 final env = kReleaseMode ? Environment.prod : Environment.test;
@@ -36,10 +37,8 @@ class MainApp extends StatelessWidget {
               title: "Flutter DDDBF",
               debugShowCheckedModeBanner: env == Environment.dev ? true : false,
               navigatorObservers: [getIt<FirebaseService>().analyticsObserver],
-              theme: ThemeData(
-                primarySwatch: Colors.blueGrey[800],
-                visualDensity: VisualDensity.adaptivePlatformDensity,
-              ),
+              theme: Styles().lightTheme,
+              darkTheme: Styles().darkTheme,
               home: App(),
             );
           }

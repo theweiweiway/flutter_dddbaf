@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dddbf/application/auth/sign_up_cubit/sign_up_state.dart';
-import 'package:flutter_dddbf/infrastructure/auth/auth_repository.dart';
-import 'package:flutter_dddbf/presentation/navigation/screens.dart';
+import 'package:flutter_dddbaf/application/auth/sign_up_cubit/sign_up_state.dart';
+import 'package:flutter_dddbaf/infrastructure/auth/auth_repository.dart';
+import 'package:flutter_dddbaf/presentation/navigation/screens.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton

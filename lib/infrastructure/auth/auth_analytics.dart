@@ -1,6 +1,6 @@
-import 'package:flutter_dddbf/domain/core/utm_parameters/utm_parameters.dart';
-import 'package:flutter_dddbf/infrastructure/core/firebase/firebase_service.dart';
-import 'package:flutter_dddbf/infrastructure/core/shared_preferences/shared_preferences_service.dart';
+import 'package:flutter_dddbaf/domain/core/utm_parameters/utm_parameters.dart';
+import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
+import 'package:flutter_dddbaf/infrastructure/core/shared_preferences/shared_preferences_service.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton

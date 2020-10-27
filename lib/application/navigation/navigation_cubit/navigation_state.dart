@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dddbf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "navigation_state.freezed.dart";

@@ -1,6 +1,6 @@
-import 'package:flutter_dddbf/domain/auth/auth_failure/auth_failure.dart';
-import 'package:flutter_dddbf/domain/core/success/success.dart';
-import 'package:flutter_dddbf/presentation/navigation/screens.dart';
+import 'package:flutter_dddbaf/domain/auth/auth_failure/auth_failure.dart';
+import 'package:flutter_dddbaf/domain/core/success/success.dart';
+import 'package:flutter_dddbaf/presentation/navigation/screens.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "sign_up_state.freezed.dart";
