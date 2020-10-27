@@ -84,6 +84,8 @@ class _AppState extends State<App> with WidgetsBindingObserver {
             builder: (BuildContext context, NavigationState navigationState) {
               return WillPopScope(
                 onWillPop: () async {
+                  /// handle the android back button so that the app always pops back to
+                  /// the search stack home screen before exiting the app
                   return await handleAppWillPop(
                       context, navigationState.navigator);
                 },
@@ -103,10 +105,16 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     );
   }
 
+  /// Only renders the stack if the user has physically pressed the stack.
+  /// This helps to prevent all stacks from initializing at the same time on app startup.
   Widget _getNavigatorWidget(ENavigator navigator, Widget widget) {
     return touched.contains(navigator) ? widget : Container();
   }
 
+  /// Get the current index of the indexed stack based on what the authentication and navigator state is.
+  /// This is a good place to add logic for protecting certain navigation stacks (for example, account
+  /// navigator can only be accessed when the user is logged in). This method gives more flexibility than
+  /// Route Guards in the auto_route package
   int _getCurrentIndex(AuthState authState, NavigationState navigationState) {
     var index;
     switch (navigationState.navigator) {
