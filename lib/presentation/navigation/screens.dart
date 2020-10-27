@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part "screens.freezed.dart";
 part "screens.g.dart";
 
-/*find a way to make this a 'part of' some file*/
-
 @freezed
 abstract class EScreen with _$EScreen {
   const factory EScreen(final String label) = _EScreen;

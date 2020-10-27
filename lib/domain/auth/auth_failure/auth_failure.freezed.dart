@@ -38,6 +38,7 @@ AuthFailure _$AuthFailureFromJson(Map<String, dynamic> json) {
   }
 }
 
+/// @nodoc
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
 
@@ -95,11 +96,18 @@ class _$AuthFailureTearOff {
   GenericError genericError() {
     return const GenericError();
   }
+
+// ignore: unused_element
+  AuthFailure fromJson(Map<String, Object> json) {
+    return AuthFailure.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthFailure = _$AuthFailureTearOff();
 
+/// @nodoc
 mixin _$AuthFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -162,12 +170,14 @@ mixin _$AuthFailure {
   Map<String, dynamic> toJson();
 }
 
+/// @nodoc
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
       _$AuthFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
@@ -176,12 +186,14 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   final $Res Function(AuthFailure) _then;
 }
 
+/// @nodoc
 abstract class $UserNotFoundCopyWith<$Res> {
   factory $UserNotFoundCopyWith(
           UserNotFound value, $Res Function(UserNotFound) then) =
       _$UserNotFoundCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$UserNotFoundCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $UserNotFoundCopyWith<$Res> {
   _$UserNotFoundCopyWithImpl(
@@ -193,6 +205,8 @@ class _$UserNotFoundCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$UserNotFound extends UserNotFound {
   const _$UserNotFound() : super._();
 
@@ -330,12 +344,14 @@ abstract class UserNotFound extends AuthFailure {
       _$UserNotFound.fromJson;
 }
 
+/// @nodoc
 abstract class $UserDisabledCopyWith<$Res> {
   factory $UserDisabledCopyWith(
           UserDisabled value, $Res Function(UserDisabled) then) =
       _$UserDisabledCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$UserDisabledCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $UserDisabledCopyWith<$Res> {
   _$UserDisabledCopyWithImpl(
@@ -347,6 +363,8 @@ class _$UserDisabledCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$UserDisabled extends UserDisabled {
   const _$UserDisabled() : super._();
 
@@ -484,12 +502,14 @@ abstract class UserDisabled extends AuthFailure {
       _$UserDisabled.fromJson;
 }
 
+/// @nodoc
 abstract class $WrongPasswordCopyWith<$Res> {
   factory $WrongPasswordCopyWith(
           WrongPassword value, $Res Function(WrongPassword) then) =
       _$WrongPasswordCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$WrongPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $WrongPasswordCopyWith<$Res> {
   _$WrongPasswordCopyWithImpl(
@@ -501,6 +521,8 @@ class _$WrongPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$WrongPassword extends WrongPassword {
   const _$WrongPassword() : super._();
 
@@ -638,12 +660,14 @@ abstract class WrongPassword extends AuthFailure {
       _$WrongPassword.fromJson;
 }
 
+/// @nodoc
 abstract class $WeakPasswordCopyWith<$Res> {
   factory $WeakPasswordCopyWith(
           WeakPassword value, $Res Function(WeakPassword) then) =
       _$WeakPasswordCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$WeakPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $WeakPasswordCopyWith<$Res> {
   _$WeakPasswordCopyWithImpl(
@@ -655,6 +679,8 @@ class _$WeakPasswordCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$WeakPassword extends WeakPassword {
   const _$WeakPassword() : super._();
 
@@ -792,12 +818,14 @@ abstract class WeakPassword extends AuthFailure {
       _$WeakPassword.fromJson;
 }
 
+/// @nodoc
 abstract class $EmailAlreadyInUseCopyWith<$Res> {
   factory $EmailAlreadyInUseCopyWith(
           EmailAlreadyInUse value, $Res Function(EmailAlreadyInUse) then) =
       _$EmailAlreadyInUseCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$EmailAlreadyInUseCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $EmailAlreadyInUseCopyWith<$Res> {
@@ -810,6 +838,8 @@ class _$EmailAlreadyInUseCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$EmailAlreadyInUse extends EmailAlreadyInUse {
   const _$EmailAlreadyInUse() : super._();
 
@@ -948,12 +978,14 @@ abstract class EmailAlreadyInUse extends AuthFailure {
       _$EmailAlreadyInUse.fromJson;
 }
 
+/// @nodoc
 abstract class $UsernameAlreadyInUseCopyWith<$Res> {
   factory $UsernameAlreadyInUseCopyWith(UsernameAlreadyInUse value,
           $Res Function(UsernameAlreadyInUse) then) =
       _$UsernameAlreadyInUseCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$UsernameAlreadyInUseCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $UsernameAlreadyInUseCopyWith<$Res> {
@@ -966,6 +998,8 @@ class _$UsernameAlreadyInUseCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$UsernameAlreadyInUse extends UsernameAlreadyInUse {
   const _$UsernameAlreadyInUse() : super._();
 
@@ -1104,12 +1138,14 @@ abstract class UsernameAlreadyInUse extends AuthFailure {
       _$UsernameAlreadyInUse.fromJson;
 }
 
+/// @nodoc
 abstract class $InvalidEmailCopyWith<$Res> {
   factory $InvalidEmailCopyWith(
           InvalidEmail value, $Res Function(InvalidEmail) then) =
       _$InvalidEmailCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$InvalidEmailCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $InvalidEmailCopyWith<$Res> {
   _$InvalidEmailCopyWithImpl(
@@ -1121,6 +1157,8 @@ class _$InvalidEmailCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$InvalidEmail extends InvalidEmail {
   const _$InvalidEmail() : super._();
 
@@ -1258,12 +1296,14 @@ abstract class InvalidEmail extends AuthFailure {
       _$InvalidEmail.fromJson;
 }
 
+/// @nodoc
 abstract class $ExpiredActionCodeCopyWith<$Res> {
   factory $ExpiredActionCodeCopyWith(
           ExpiredActionCode value, $Res Function(ExpiredActionCode) then) =
       _$ExpiredActionCodeCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$ExpiredActionCodeCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $ExpiredActionCodeCopyWith<$Res> {
@@ -1276,6 +1316,8 @@ class _$ExpiredActionCodeCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$ExpiredActionCode extends ExpiredActionCode {
   const _$ExpiredActionCode() : super._();
 
@@ -1414,12 +1456,14 @@ abstract class ExpiredActionCode extends AuthFailure {
       _$ExpiredActionCode.fromJson;
 }
 
+/// @nodoc
 abstract class $InvalidActionCodeCopyWith<$Res> {
   factory $InvalidActionCodeCopyWith(
           InvalidActionCode value, $Res Function(InvalidActionCode) then) =
       _$InvalidActionCodeCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$InvalidActionCodeCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $InvalidActionCodeCopyWith<$Res> {
@@ -1432,6 +1476,8 @@ class _$InvalidActionCodeCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$InvalidActionCode extends InvalidActionCode {
   const _$InvalidActionCode() : super._();
 
@@ -1570,12 +1616,14 @@ abstract class InvalidActionCode extends AuthFailure {
       _$InvalidActionCode.fromJson;
 }
 
+/// @nodoc
 abstract class $InternalServerErrorCopyWith<$Res> {
   factory $InternalServerErrorCopyWith(
           InternalServerError value, $Res Function(InternalServerError) then) =
       _$InternalServerErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$InternalServerErrorCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $InternalServerErrorCopyWith<$Res> {
@@ -1588,6 +1636,8 @@ class _$InternalServerErrorCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$InternalServerError extends InternalServerError {
   const _$InternalServerError() : super._();
 
@@ -1726,12 +1776,14 @@ abstract class InternalServerError extends AuthFailure {
       _$InternalServerError.fromJson;
 }
 
+/// @nodoc
 abstract class $GenericErrorCopyWith<$Res> {
   factory $GenericErrorCopyWith(
           GenericError value, $Res Function(GenericError) then) =
       _$GenericErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GenericErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $GenericErrorCopyWith<$Res> {
   _$GenericErrorCopyWithImpl(
@@ -1743,6 +1795,8 @@ class _$GenericErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$GenericError extends GenericError {
   const _$GenericError() : super._();
 

@@ -12,6 +12,7 @@ EScreen _$EScreenFromJson(Map<String, dynamic> json) {
   return _EScreen.fromJson(json);
 }
 
+/// @nodoc
 class _$EScreenTearOff {
   const _$EScreenTearOff();
 
@@ -23,9 +24,11 @@ class _$EScreenTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $EScreen = _$EScreenTearOff();
 
+/// @nodoc
 mixin _$EScreen {
   String get label;
 
@@ -33,12 +36,14 @@ mixin _$EScreen {
   $EScreenCopyWith<EScreen> get copyWith;
 }
 
+/// @nodoc
 abstract class $EScreenCopyWith<$Res> {
   factory $EScreenCopyWith(EScreen value, $Res Function(EScreen) then) =
       _$EScreenCopyWithImpl<$Res>;
   $Res call({String label});
 }
 
+/// @nodoc
 class _$EScreenCopyWithImpl<$Res> implements $EScreenCopyWith<$Res> {
   _$EScreenCopyWithImpl(this._value, this._then);
 
@@ -56,6 +61,7 @@ class _$EScreenCopyWithImpl<$Res> implements $EScreenCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$EScreenCopyWith<$Res> implements $EScreenCopyWith<$Res> {
   factory _$EScreenCopyWith(_EScreen value, $Res Function(_EScreen) then) =
       __$EScreenCopyWithImpl<$Res>;
@@ -63,6 +69,7 @@ abstract class _$EScreenCopyWith<$Res> implements $EScreenCopyWith<$Res> {
   $Res call({String label});
 }
 
+/// @nodoc
 class __$EScreenCopyWithImpl<$Res> extends _$EScreenCopyWithImpl<$Res>
     implements _$EScreenCopyWith<$Res> {
   __$EScreenCopyWithImpl(_EScreen _value, $Res Function(_EScreen) _then)
@@ -82,6 +89,8 @@ class __$EScreenCopyWithImpl<$Res> extends _$EScreenCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_EScreen implements _EScreen {
   const _$_EScreen(this.label) : assert(label != null);
 

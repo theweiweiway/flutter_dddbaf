@@ -22,6 +22,7 @@ Failure _$FailureFromJson(Map<String, dynamic> json) {
   }
 }
 
+/// @nodoc
 class _$FailureTearOff {
   const _$FailureTearOff();
 
@@ -42,11 +43,18 @@ class _$FailureTearOff {
   InternalServerError internalServerError() {
     return const InternalServerError();
   }
+
+// ignore: unused_element
+  Failure fromJson(Map<String, Object> json) {
+    return Failure.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Failure = _$FailureTearOff();
 
+/// @nodoc
 mixin _$Failure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -77,11 +85,13 @@ mixin _$Failure {
   Map<String, dynamic> toJson();
 }
 
+/// @nodoc
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
       _$FailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
   _$FailureCopyWithImpl(this._value, this._then);
 
@@ -90,12 +100,14 @@ class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
   final $Res Function(Failure) _then;
 }
 
+/// @nodoc
 abstract class $ErrorCopyWith<$Res> {
   factory $ErrorCopyWith(Error value, $Res Function(Error) then) =
       _$ErrorCopyWithImpl<$Res>;
   $Res call({String message, String error});
 }
 
+/// @nodoc
 class _$ErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
     implements $ErrorCopyWith<$Res> {
   _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
@@ -117,6 +129,8 @@ class _$ErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$Error implements Error {
   const _$Error({this.message, this.error});
 
@@ -226,12 +240,14 @@ abstract class Error implements Failure {
   $ErrorCopyWith<Error> get copyWith;
 }
 
+/// @nodoc
 abstract class $SocketExceptionFailureCopyWith<$Res> {
   factory $SocketExceptionFailureCopyWith(SocketExceptionFailure value,
           $Res Function(SocketExceptionFailure) then) =
       _$SocketExceptionFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SocketExceptionFailureCopyWithImpl<$Res>
     extends _$FailureCopyWithImpl<$Res>
     implements $SocketExceptionFailureCopyWith<$Res> {
@@ -244,6 +260,8 @@ class _$SocketExceptionFailureCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$SocketExceptionFailure implements SocketExceptionFailure {
   const _$SocketExceptionFailure();
 
@@ -333,12 +351,14 @@ abstract class SocketExceptionFailure implements Failure {
       _$SocketExceptionFailure.fromJson;
 }
 
+/// @nodoc
 abstract class $InternalServerErrorCopyWith<$Res> {
   factory $InternalServerErrorCopyWith(
           InternalServerError value, $Res Function(InternalServerError) then) =
       _$InternalServerErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$InternalServerErrorCopyWithImpl<$Res>
     extends _$FailureCopyWithImpl<$Res>
     implements $InternalServerErrorCopyWith<$Res> {
@@ -351,6 +371,8 @@ class _$InternalServerErrorCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$InternalServerError implements InternalServerError {
   const _$InternalServerError();
 

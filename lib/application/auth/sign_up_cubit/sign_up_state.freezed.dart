@@ -12,6 +12,7 @@ SignUpState _$SignUpStateFromJson(Map<String, dynamic> json) {
   return _SignUpState.fromJson(json);
 }
 
+/// @nodoc
 class _$SignUpStateTearOff {
   const _$SignUpStateTearOff();
 
@@ -32,11 +33,18 @@ class _$SignUpStateTearOff {
       redirectTo: redirectTo,
     );
   }
+
+// ignore: unused_element
+  SignUpState fromJson(Map<String, Object> json) {
+    return SignUpState.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignUpState = _$SignUpStateTearOff();
 
+/// @nodoc
 mixin _$SignUpState {
   String get email;
   String get username;
@@ -49,6 +57,7 @@ mixin _$SignUpState {
   $SignUpStateCopyWith<SignUpState> get copyWith;
 }
 
+/// @nodoc
 abstract class $SignUpStateCopyWith<$Res> {
   factory $SignUpStateCopyWith(
           SignUpState value, $Res Function(SignUpState) then) =
@@ -66,6 +75,7 @@ abstract class $SignUpStateCopyWith<$Res> {
   $EScreenCopyWith<$Res> get redirectTo;
 }
 
+/// @nodoc
 class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
   _$SignUpStateCopyWithImpl(this._value, this._then);
 
@@ -126,6 +136,7 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SignUpStateCopyWith<$Res>
     implements $SignUpStateCopyWith<$Res> {
   factory _$SignUpStateCopyWith(
@@ -148,6 +159,7 @@ abstract class _$SignUpStateCopyWith<$Res>
   $EScreenCopyWith<$Res> get redirectTo;
 }
 
+/// @nodoc
 class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     implements _$SignUpStateCopyWith<$Res> {
   __$SignUpStateCopyWithImpl(
@@ -181,6 +193,8 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_SignUpState implements _SignUpState {
   const _$_SignUpState(
       {this.email = '',

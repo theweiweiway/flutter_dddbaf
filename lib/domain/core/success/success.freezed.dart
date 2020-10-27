@@ -12,6 +12,7 @@ Success _$SuccessFromJson(Map<String, dynamic> json) {
   return _Success.fromJson(json);
 }
 
+/// @nodoc
 class _$SuccessTearOff {
   const _$SuccessTearOff();
 
@@ -21,11 +22,18 @@ class _$SuccessTearOff {
       message: message,
     );
   }
+
+// ignore: unused_element
+  Success fromJson(Map<String, Object> json) {
+    return Success.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Success = _$SuccessTearOff();
 
+/// @nodoc
 mixin _$Success {
   String get message;
 
@@ -33,12 +41,14 @@ mixin _$Success {
   $SuccessCopyWith<Success> get copyWith;
 }
 
+/// @nodoc
 abstract class $SuccessCopyWith<$Res> {
   factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
       _$SuccessCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
+/// @nodoc
 class _$SuccessCopyWithImpl<$Res> implements $SuccessCopyWith<$Res> {
   _$SuccessCopyWithImpl(this._value, this._then);
 
@@ -56,6 +66,7 @@ class _$SuccessCopyWithImpl<$Res> implements $SuccessCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SuccessCopyWith<$Res> implements $SuccessCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
       __$SuccessCopyWithImpl<$Res>;
@@ -63,6 +74,7 @@ abstract class _$SuccessCopyWith<$Res> implements $SuccessCopyWith<$Res> {
   $Res call({String message});
 }
 
+/// @nodoc
 class __$SuccessCopyWithImpl<$Res> extends _$SuccessCopyWithImpl<$Res>
     implements _$SuccessCopyWith<$Res> {
   __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
@@ -82,6 +94,8 @@ class __$SuccessCopyWithImpl<$Res> extends _$SuccessCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Success implements _Success {
   const _$_Success({this.message});
 

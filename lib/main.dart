@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
           }
           if (snapshot.connectionState == ConnectionState.done) {
             return MaterialApp(
-              title: "Flutter DDDBF",
+              title: "Flutter DDDBAF",
               debugShowCheckedModeBanner: env == Environment.dev ? true : false,
               navigatorObservers: [getIt<FirebaseService>().analyticsObserver],
               theme: Styles().lightTheme,

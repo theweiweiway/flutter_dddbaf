@@ -14,6 +14,7 @@ abstract class AuthState with _$AuthState {
 
   const factory AuthState.loggedIn({
     String uid,
+    String username,
     String email,
   }) = LoggedIn;
 }

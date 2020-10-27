@@ -1,4 +1,4 @@
-import 'package:flutter_dddbaf/domain/core/utm_parameters/utm_parameters.dart';
+import 'package:flutter_dddbaf/domain/auth/utm_parameters/utm_parameters.dart';
 import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
 import 'package:flutter_dddbaf/infrastructure/core/shared_preferences/shared_preferences_service.dart';
 import 'package:injectable/injectable.dart';
