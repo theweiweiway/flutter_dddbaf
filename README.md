@@ -1,4 +1,4 @@
-# DDDBF (Domain Driven Design | Bloc | Firebase)
+# DDDBF (Domain Driven Design | Bloc | AutoRoute | Firebase)
 
 This is an opinionated starter project that is heavy inspired by [ResoCoder's DDD series](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
 
@@ -8,19 +8,22 @@ There are 4 folders in this project:
 
 - presentation (for everything UI)
   |
+  --- navigation
   --- screens
   --- widgets
 - application (for state management and logic)
   |
   --- auth
+  --- core
   --- navigation
 - domain
   |
+  --- auth
   --- core
   |
   --- failure
   --- success
-  --- auth
+  --- utm_parameters
   --- navigation
 - infrastrcture
   |
