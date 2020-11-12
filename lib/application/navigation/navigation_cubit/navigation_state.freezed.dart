@@ -15,17 +15,10 @@ class _$NavigationStateTearOff {
 
 // ignore: unused_element
   _NavigationState call(
-      {ENavigator navigator = ENavigator.search,
-      bool visible = true,
-      List<Page> authPages,
-      List<Page> accountPages,
-      List<Page> searchPages}) {
+      {ENavigator navigator = ENavigator.search, bool visible = true}) {
     return _NavigationState(
       navigator: navigator,
       visible: visible,
-      authPages: authPages,
-      accountPages: accountPages,
-      searchPages: searchPages,
     );
   }
 }
@@ -36,11 +29,11 @@ const $NavigationState = _$NavigationStateTearOff();
 
 /// @nodoc
 mixin _$NavigationState {
+  /// This is the current navigation stack that is selected
   ENavigator get navigator;
+
+  /// This determines whether the bottom navigation bar is visile or hidden
   bool get visible;
-  List<Page> get authPages;
-  List<Page> get accountPages;
-  List<Page> get searchPages;
 
   $NavigationStateCopyWith<NavigationState> get copyWith;
 }
@@ -50,12 +43,7 @@ abstract class $NavigationStateCopyWith<$Res> {
   factory $NavigationStateCopyWith(
           NavigationState value, $Res Function(NavigationState) then) =
       _$NavigationStateCopyWithImpl<$Res>;
-  $Res call(
-      {ENavigator navigator,
-      bool visible,
-      List<Page> authPages,
-      List<Page> accountPages,
-      List<Page> searchPages});
+  $Res call({ENavigator navigator, bool visible});
 }
 
 /// @nodoc
@@ -71,22 +59,11 @@ class _$NavigationStateCopyWithImpl<$Res>
   $Res call({
     Object navigator = freezed,
     Object visible = freezed,
-    Object authPages = freezed,
-    Object accountPages = freezed,
-    Object searchPages = freezed,
   }) {
     return _then(_value.copyWith(
       navigator:
           navigator == freezed ? _value.navigator : navigator as ENavigator,
       visible: visible == freezed ? _value.visible : visible as bool,
-      authPages:
-          authPages == freezed ? _value.authPages : authPages as List<Page>,
-      accountPages: accountPages == freezed
-          ? _value.accountPages
-          : accountPages as List<Page>,
-      searchPages: searchPages == freezed
-          ? _value.searchPages
-          : searchPages as List<Page>,
     ));
   }
 }
@@ -98,12 +75,7 @@ abstract class _$NavigationStateCopyWith<$Res>
           _NavigationState value, $Res Function(_NavigationState) then) =
       __$NavigationStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {ENavigator navigator,
-      bool visible,
-      List<Page> authPages,
-      List<Page> accountPages,
-      List<Page> searchPages});
+  $Res call({ENavigator navigator, bool visible});
 }
 
 /// @nodoc
@@ -121,22 +93,11 @@ class __$NavigationStateCopyWithImpl<$Res>
   $Res call({
     Object navigator = freezed,
     Object visible = freezed,
-    Object authPages = freezed,
-    Object accountPages = freezed,
-    Object searchPages = freezed,
   }) {
     return _then(_NavigationState(
       navigator:
           navigator == freezed ? _value.navigator : navigator as ENavigator,
       visible: visible == freezed ? _value.visible : visible as bool,
-      authPages:
-          authPages == freezed ? _value.authPages : authPages as List<Page>,
-      accountPages: accountPages == freezed
-          ? _value.accountPages
-          : accountPages as List<Page>,
-      searchPages: searchPages == freezed
-          ? _value.searchPages
-          : searchPages as List<Page>,
     ));
   }
 }
@@ -144,30 +105,24 @@ class __$NavigationStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_NavigationState implements _NavigationState {
   const _$_NavigationState(
-      {this.navigator = ENavigator.search,
-      this.visible = true,
-      this.authPages,
-      this.accountPages,
-      this.searchPages})
+      {this.navigator = ENavigator.search, this.visible = true})
       : assert(navigator != null),
         assert(visible != null);
 
   @JsonKey(defaultValue: ENavigator.search)
   @override
+
+  /// This is the current navigation stack that is selected
   final ENavigator navigator;
   @JsonKey(defaultValue: true)
   @override
+
+  /// This determines whether the bottom navigation bar is visile or hidden
   final bool visible;
-  @override
-  final List<Page> authPages;
-  @override
-  final List<Page> accountPages;
-  @override
-  final List<Page> searchPages;
 
   @override
   String toString() {
-    return 'NavigationState(navigator: $navigator, visible: $visible, authPages: $authPages, accountPages: $accountPages, searchPages: $searchPages)';
+    return 'NavigationState(navigator: $navigator, visible: $visible)';
   }
 
   @override
@@ -178,27 +133,14 @@ class _$_NavigationState implements _NavigationState {
                 const DeepCollectionEquality()
                     .equals(other.navigator, navigator)) &&
             (identical(other.visible, visible) ||
-                const DeepCollectionEquality()
-                    .equals(other.visible, visible)) &&
-            (identical(other.authPages, authPages) ||
-                const DeepCollectionEquality()
-                    .equals(other.authPages, authPages)) &&
-            (identical(other.accountPages, accountPages) ||
-                const DeepCollectionEquality()
-                    .equals(other.accountPages, accountPages)) &&
-            (identical(other.searchPages, searchPages) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchPages, searchPages)));
+                const DeepCollectionEquality().equals(other.visible, visible)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(navigator) ^
-      const DeepCollectionEquality().hash(visible) ^
-      const DeepCollectionEquality().hash(authPages) ^
-      const DeepCollectionEquality().hash(accountPages) ^
-      const DeepCollectionEquality().hash(searchPages);
+      const DeepCollectionEquality().hash(visible);
 
   @override
   _$NavigationStateCopyWith<_NavigationState> get copyWith =>
@@ -206,23 +148,17 @@ class _$_NavigationState implements _NavigationState {
 }
 
 abstract class _NavigationState implements NavigationState {
-  const factory _NavigationState(
-      {ENavigator navigator,
-      bool visible,
-      List<Page> authPages,
-      List<Page> accountPages,
-      List<Page> searchPages}) = _$_NavigationState;
+  const factory _NavigationState({ENavigator navigator, bool visible}) =
+      _$_NavigationState;
 
   @override
+
+  /// This is the current navigation stack that is selected
   ENavigator get navigator;
   @override
+
+  /// This determines whether the bottom navigation bar is visile or hidden
   bool get visible;
-  @override
-  List<Page> get authPages;
-  @override
-  List<Page> get accountPages;
-  @override
-  List<Page> get searchPages;
   @override
   _$NavigationStateCopyWith<_NavigationState> get copyWith;
 }

@@ -14,7 +14,6 @@ import 'infrastructure/auth/auth_repository.dart';
 import 'infrastructure/core/firebase/firebase_service.dart';
 import 'infrastructure/core/firebase/firestore_service.dart';
 import 'application/navigation/navigation_cubit/navigation_cubit.dart';
-import 'infrastructure/core/shared_preferences/shared_preferences_service.dart';
 import 'application/auth/sign_up_cubit/sign_up_cubit.dart';
 
 /// adds generated dependencies
@@ -27,20 +26,15 @@ GetIt $initGetIt(
 }) {
   final gh = GetItHelper(get, environment, environmentFilter);
   gh.lazySingleton<AuthCubit>(() => AuthCubit());
-  gh.lazySingleton<NavigationCubit>(() => NavigationCubit());
-  gh.lazySingleton<SharedPreferencesService>(() => SharedPreferencesService());
-  gh.lazySingleton<AuthAnalytics>(() =>
-      AuthAnalytics(get<FirebaseService>(), get<SharedPreferencesService>()));
-  gh.lazySingleton<AuthApi>(() => AuthApi(
-        get<FirebaseService>(),
-        get<FirestoreService>(),
-        get<SharedPreferencesService>(),
-      ));
+  gh.lazySingleton<AuthAnalytics>(() => AuthAnalytics(get<FirebaseService>()));
+  gh.lazySingleton<AuthApi>(
+      () => AuthApi(get<FirebaseService>(), get<FirestoreService>()));
   gh.lazySingleton<AuthRepository>(() => AuthRepository(get<AuthApi>()));
   gh.lazySingleton<SignUpCubit>(() => SignUpCubit(get<AuthRepository>()));
 
   // Eager singletons must be registered in the right order
   gh.singleton<FirebaseService>(FirebaseService());
   gh.singleton<FirestoreService>(FirestoreService());
+  gh.singleton<NavigationCubit>(NavigationCubit());
   return get;
 }

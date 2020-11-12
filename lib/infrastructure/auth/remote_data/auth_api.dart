@@ -1,23 +1,23 @@
 import 'package:flutter_dddbaf/domain/auth/auth_failure/auth_failure.dart';
+import 'package:flutter_dddbaf/domain/auth/utm_parameters/utm_parameters.dart';
 import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
 import 'package:flutter_dddbaf/infrastructure/core/firebase/firestore_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_dddbaf/infrastructure/core/shared_preferences/shared_preferences_service.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class AuthApi {
   FirebaseService _firebaseService;
   FirestoreService _firestoreService;
-  SharedPreferencesService _sharedPreferencesService;
-  AuthApi(this._firebaseService, this._firestoreService,
-      this._sharedPreferencesService);
+  AuthApi(
+    this._firebaseService,
+    this._firestoreService,
+  );
 
   /// creates account AND THEN signs the user into that account
   Future<Either<AuthFailure, UserCredential>> createUserWithEmailAndPassword(
       String email, String password, String username) async {
-    final prefs = await _sharedPreferencesService.getPrefs();
     try {
       UserCredential userCredential = await _firebaseService.auth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -25,11 +25,7 @@ class AuthApi {
           .doc(userCredential.user.uid)
           .set({
         "uid": userCredential.user.uid,
-        "utm": {
-          "campaign": prefs.getString('utm_campaign'),
-          "source": prefs.getString('utm_source'),
-          "medium": prefs.getString('utm_medium')
-        }
+        "utm": UtmParameters().readFromHive().toJson(),
       });
       return right(userCredential);
     } on FirebaseAuthException catch (e) {

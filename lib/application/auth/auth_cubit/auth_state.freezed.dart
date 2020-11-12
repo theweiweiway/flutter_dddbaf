@@ -139,10 +139,17 @@ class _$LoggedOut implements LoggedOut {
 
   @JsonKey(defaultValue: false)
   @override
+
+  /// This works in conjunction with `showLoadingDialog` to let the
+  /// user know that the app is loading
   final bool loading;
   @override
+
+  /// A failure when an authentication function fails.
+  /// This works in conjunction with `showErrorFlushbar` to let the user
+  /// know of the failure
   final AuthFailure failure;
-  @override // triggers flushbar
+  @override
   final Success success;
 
   @override
@@ -231,8 +238,14 @@ abstract class LoggedOut implements AuthState {
   const factory LoggedOut(
       {bool loading, AuthFailure failure, Success success}) = _$LoggedOut;
 
+  /// This works in conjunction with `showLoadingDialog` to let the
+  /// user know that the app is loading
   bool get loading;
-  AuthFailure get failure; // triggers flushbar
+
+  /// A failure when an authentication function fails.
+  /// This works in conjunction with `showErrorFlushbar` to let the user
+  /// know of the failure
+  AuthFailure get failure;
   Success get success;
   $LoggedOutCopyWith<LoggedOut> get copyWith;
 }

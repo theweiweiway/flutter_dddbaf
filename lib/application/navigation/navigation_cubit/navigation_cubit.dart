@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
+@singleton
 class NavigationCubit extends Cubit<NavigationState> {
-  NavigationCubit() : super(NavigationState.initial());
+  NavigationCubit() : super(NavigationState());
 
   void changeNavigator(ENavigator navigator) async {
     emit(state.copyWith(navigator: navigator));

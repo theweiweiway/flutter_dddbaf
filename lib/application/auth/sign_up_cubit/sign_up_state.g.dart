@@ -8,9 +8,9 @@ part of 'sign_up_state.dart';
 
 _$_SignUpState _$_$_SignUpStateFromJson(Map<String, dynamic> json) {
   return _$_SignUpState(
-    email: json['email'] as String ?? '',
-    username: json['username'] as String ?? '',
-    password: json['password'] as String ?? '',
+    signUpData: json['signUpData'] == null
+        ? null
+        : SignUpData.fromJson(json['signUpData'] as Map<String, dynamic>),
     success: json['success'] == null
         ? null
         : Success.fromJson(json['success'] as Map<String, dynamic>),
@@ -25,9 +25,7 @@ _$_SignUpState _$_$_SignUpStateFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_SignUpStateToJson(_$_SignUpState instance) =>
     <String, dynamic>{
-      'email': instance.email,
-      'username': instance.username,
-      'password': instance.password,
+      'signUpData': instance.signUpData,
       'success': instance.success,
       'authFailure': instance.authFailure,
       'redirectTo': instance.redirectTo,

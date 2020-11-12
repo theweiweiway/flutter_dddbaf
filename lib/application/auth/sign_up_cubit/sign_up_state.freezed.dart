@@ -18,16 +18,12 @@ class _$SignUpStateTearOff {
 
 // ignore: unused_element
   _SignUpState call(
-      {String email = '',
-      String username = '',
-      String password = '',
+      {SignUpData signUpData,
       Success success,
       AuthFailure authFailure,
       EScreen redirectTo}) {
     return _SignUpState(
-      email: email,
-      username: username,
-      password: password,
+      signUpData: signUpData,
       success: success,
       authFailure: authFailure,
       redirectTo: redirectTo,
@@ -46,9 +42,8 @@ const $SignUpState = _$SignUpStateTearOff();
 
 /// @nodoc
 mixin _$SignUpState {
-  String get email;
-  String get username;
-  String get password;
+  /// This holds a user's info during the sign up process
+  SignUpData get signUpData;
   Success get success;
   AuthFailure get authFailure;
   EScreen get redirectTo;
@@ -63,13 +58,12 @@ abstract class $SignUpStateCopyWith<$Res> {
           SignUpState value, $Res Function(SignUpState) then) =
       _$SignUpStateCopyWithImpl<$Res>;
   $Res call(
-      {String email,
-      String username,
-      String password,
+      {SignUpData signUpData,
       Success success,
       AuthFailure authFailure,
       EScreen redirectTo});
 
+  $SignUpDataCopyWith<$Res> get signUpData;
   $SuccessCopyWith<$Res> get success;
   $AuthFailureCopyWith<$Res> get authFailure;
   $EScreenCopyWith<$Res> get redirectTo;
@@ -85,17 +79,14 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object email = freezed,
-    Object username = freezed,
-    Object password = freezed,
+    Object signUpData = freezed,
     Object success = freezed,
     Object authFailure = freezed,
     Object redirectTo = freezed,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed ? _value.email : email as String,
-      username: username == freezed ? _value.username : username as String,
-      password: password == freezed ? _value.password : password as String,
+      signUpData:
+          signUpData == freezed ? _value.signUpData : signUpData as SignUpData,
       success: success == freezed ? _value.success : success as Success,
       authFailure: authFailure == freezed
           ? _value.authFailure
@@ -103,6 +94,16 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
       redirectTo:
           redirectTo == freezed ? _value.redirectTo : redirectTo as EScreen,
     ));
+  }
+
+  @override
+  $SignUpDataCopyWith<$Res> get signUpData {
+    if (_value.signUpData == null) {
+      return null;
+    }
+    return $SignUpDataCopyWith<$Res>(_value.signUpData, (value) {
+      return _then(_value.copyWith(signUpData: value));
+    });
   }
 
   @override
@@ -144,13 +145,13 @@ abstract class _$SignUpStateCopyWith<$Res>
       __$SignUpStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String email,
-      String username,
-      String password,
+      {SignUpData signUpData,
       Success success,
       AuthFailure authFailure,
       EScreen redirectTo});
 
+  @override
+  $SignUpDataCopyWith<$Res> get signUpData;
   @override
   $SuccessCopyWith<$Res> get success;
   @override
@@ -171,17 +172,14 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
-    Object username = freezed,
-    Object password = freezed,
+    Object signUpData = freezed,
     Object success = freezed,
     Object authFailure = freezed,
     Object redirectTo = freezed,
   }) {
     return _then(_SignUpState(
-      email: email == freezed ? _value.email : email as String,
-      username: username == freezed ? _value.username : username as String,
-      password: password == freezed ? _value.password : password as String,
+      signUpData:
+          signUpData == freezed ? _value.signUpData : signUpData as SignUpData,
       success: success == freezed ? _value.success : success as Success,
       authFailure: authFailure == freezed
           ? _value.authFailure
@@ -197,28 +195,15 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_SignUpState implements _SignUpState {
   const _$_SignUpState(
-      {this.email = '',
-      this.username = '',
-      this.password = '',
-      this.success,
-      this.authFailure,
-      this.redirectTo})
-      : assert(email != null),
-        assert(username != null),
-        assert(password != null);
+      {this.signUpData, this.success, this.authFailure, this.redirectTo});
 
   factory _$_SignUpState.fromJson(Map<String, dynamic> json) =>
       _$_$_SignUpStateFromJson(json);
 
-  @JsonKey(defaultValue: '')
   @override
-  final String email;
-  @JsonKey(defaultValue: '')
-  @override
-  final String username;
-  @JsonKey(defaultValue: '')
-  @override
-  final String password;
+
+  /// This holds a user's info during the sign up process
+  final SignUpData signUpData;
   @override
   final Success success;
   @override
@@ -228,21 +213,16 @@ class _$_SignUpState implements _SignUpState {
 
   @override
   String toString() {
-    return 'SignUpState(email: $email, username: $username, password: $password, success: $success, authFailure: $authFailure, redirectTo: $redirectTo)';
+    return 'SignUpState(signUpData: $signUpData, success: $success, authFailure: $authFailure, redirectTo: $redirectTo)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SignUpState &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.username, username) ||
+            (identical(other.signUpData, signUpData) ||
                 const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
+                    .equals(other.signUpData, signUpData)) &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality()
                     .equals(other.success, success)) &&
@@ -257,9 +237,7 @@ class _$_SignUpState implements _SignUpState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(username) ^
-      const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(signUpData) ^
       const DeepCollectionEquality().hash(success) ^
       const DeepCollectionEquality().hash(authFailure) ^
       const DeepCollectionEquality().hash(redirectTo);
@@ -276,9 +254,7 @@ class _$_SignUpState implements _SignUpState {
 
 abstract class _SignUpState implements SignUpState {
   const factory _SignUpState(
-      {String email,
-      String username,
-      String password,
+      {SignUpData signUpData,
       Success success,
       AuthFailure authFailure,
       EScreen redirectTo}) = _$_SignUpState;
@@ -287,11 +263,9 @@ abstract class _SignUpState implements SignUpState {
       _$_SignUpState.fromJson;
 
   @override
-  String get email;
-  @override
-  String get username;
-  @override
-  String get password;
+
+  /// This holds a user's info during the sign up process
+  SignUpData get signUpData;
   @override
   Success get success;
   @override

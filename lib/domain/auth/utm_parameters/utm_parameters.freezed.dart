@@ -18,15 +18,15 @@ class _$UtmParametersTearOff {
 
 // ignore: unused_element
   _UtmParameters call(
-      {@required String source,
-      @required String medium,
-      @required String name,
+      {String source,
+      String medium,
+      String campaign,
       String term,
       String content}) {
     return _UtmParameters(
       source: source,
       medium: medium,
-      name: name,
+      campaign: campaign,
       term: term,
       content: content,
     );
@@ -46,7 +46,7 @@ const $UtmParameters = _$UtmParametersTearOff();
 mixin _$UtmParameters {
   String get source;
   String get medium;
-  String get name;
+  String get campaign;
   String get term;
   String get content;
 
@@ -60,7 +60,11 @@ abstract class $UtmParametersCopyWith<$Res> {
           UtmParameters value, $Res Function(UtmParameters) then) =
       _$UtmParametersCopyWithImpl<$Res>;
   $Res call(
-      {String source, String medium, String name, String term, String content});
+      {String source,
+      String medium,
+      String campaign,
+      String term,
+      String content});
 }
 
 /// @nodoc
@@ -76,14 +80,14 @@ class _$UtmParametersCopyWithImpl<$Res>
   $Res call({
     Object source = freezed,
     Object medium = freezed,
-    Object name = freezed,
+    Object campaign = freezed,
     Object term = freezed,
     Object content = freezed,
   }) {
     return _then(_value.copyWith(
       source: source == freezed ? _value.source : source as String,
       medium: medium == freezed ? _value.medium : medium as String,
-      name: name == freezed ? _value.name : name as String,
+      campaign: campaign == freezed ? _value.campaign : campaign as String,
       term: term == freezed ? _value.term : term as String,
       content: content == freezed ? _value.content : content as String,
     ));
@@ -98,7 +102,11 @@ abstract class _$UtmParametersCopyWith<$Res>
       __$UtmParametersCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String source, String medium, String name, String term, String content});
+      {String source,
+      String medium,
+      String campaign,
+      String term,
+      String content});
 }
 
 /// @nodoc
@@ -116,14 +124,14 @@ class __$UtmParametersCopyWithImpl<$Res>
   $Res call({
     Object source = freezed,
     Object medium = freezed,
-    Object name = freezed,
+    Object campaign = freezed,
     Object term = freezed,
     Object content = freezed,
   }) {
     return _then(_UtmParameters(
       source: source == freezed ? _value.source : source as String,
       medium: medium == freezed ? _value.medium : medium as String,
-      name: name == freezed ? _value.name : name as String,
+      campaign: campaign == freezed ? _value.campaign : campaign as String,
       term: term == freezed ? _value.term : term as String,
       content: content == freezed ? _value.content : content as String,
     ));
@@ -133,16 +141,10 @@ class __$UtmParametersCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_UtmParameters implements _UtmParameters {
+class _$_UtmParameters extends _UtmParameters {
   const _$_UtmParameters(
-      {@required this.source,
-      @required this.medium,
-      @required this.name,
-      this.term,
-      this.content})
-      : assert(source != null),
-        assert(medium != null),
-        assert(name != null);
+      {this.source, this.medium, this.campaign, this.term, this.content})
+      : super._();
 
   factory _$_UtmParameters.fromJson(Map<String, dynamic> json) =>
       _$_$_UtmParametersFromJson(json);
@@ -152,7 +154,7 @@ class _$_UtmParameters implements _UtmParameters {
   @override
   final String medium;
   @override
-  final String name;
+  final String campaign;
   @override
   final String term;
   @override
@@ -160,7 +162,7 @@ class _$_UtmParameters implements _UtmParameters {
 
   @override
   String toString() {
-    return 'UtmParameters(source: $source, medium: $medium, name: $name, term: $term, content: $content)';
+    return 'UtmParameters(source: $source, medium: $medium, campaign: $campaign, term: $term, content: $content)';
   }
 
   @override
@@ -171,8 +173,9 @@ class _$_UtmParameters implements _UtmParameters {
                 const DeepCollectionEquality().equals(other.source, source)) &&
             (identical(other.medium, medium) ||
                 const DeepCollectionEquality().equals(other.medium, medium)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.campaign, campaign) ||
+                const DeepCollectionEquality()
+                    .equals(other.campaign, campaign)) &&
             (identical(other.term, term) ||
                 const DeepCollectionEquality().equals(other.term, term)) &&
             (identical(other.content, content) ||
@@ -184,7 +187,7 @@ class _$_UtmParameters implements _UtmParameters {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(source) ^
       const DeepCollectionEquality().hash(medium) ^
-      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(campaign) ^
       const DeepCollectionEquality().hash(term) ^
       const DeepCollectionEquality().hash(content);
 
@@ -198,11 +201,12 @@ class _$_UtmParameters implements _UtmParameters {
   }
 }
 
-abstract class _UtmParameters implements UtmParameters {
+abstract class _UtmParameters extends UtmParameters {
+  const _UtmParameters._() : super._();
   const factory _UtmParameters(
-      {@required String source,
-      @required String medium,
-      @required String name,
+      {String source,
+      String medium,
+      String campaign,
       String term,
       String content}) = _$_UtmParameters;
 
@@ -214,7 +218,7 @@ abstract class _UtmParameters implements UtmParameters {
   @override
   String get medium;
   @override
-  String get name;
+  String get campaign;
   @override
   String get term;
   @override

@@ -19,7 +19,8 @@ There are 4 folders in this project:
 - domain
   |
   --- auth
-  --- core
+  --- core // for core classes that handle app functionality (like Failure and Success class)
+  --- shared // for nested classes that are shared between many classes
   |
   --- failure
   --- success
