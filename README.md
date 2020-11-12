@@ -1,8 +1,10 @@
 # DDDBF (Domain Driven Design | Bloc | Auto_route | Firebase)
 
+- [DDD folder architecture:](#domain-driven-design)
+
 This is an opinionated starter project that is heavy inspired by [ResoCoder's DDD series](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
 
-#### Domain Driven Design
+#### <a name="domain-driven-design"></a> Domain Driven Design
 
 There are 4 folders in this project:
 
