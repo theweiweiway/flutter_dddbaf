@@ -1,4 +1,4 @@
-import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/presentation/navigation/navigators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "navigation_state.freezed.dart";

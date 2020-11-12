@@ -13,8 +13,14 @@ import 'application/auth/auth_cubit/auth_cubit.dart';
 import 'infrastructure/auth/auth_repository.dart';
 import 'infrastructure/core/firebase/firebase_service.dart';
 import 'infrastructure/core/firebase/firestore_service.dart';
+import 'infrastructure/core/dio/url_config.dart';
 import 'application/navigation/navigation_cubit/navigation_cubit.dart';
 import 'application/auth/sign_up_cubit/sign_up_cubit.dart';
+
+/// Environment names
+const _prod = 'prod';
+const _test = 'test';
+const _dev = 'dev';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -26,6 +32,9 @@ GetIt $initGetIt(
 }) {
   final gh = GetItHelper(get, environment, environmentFilter);
   gh.lazySingleton<AuthCubit>(() => AuthCubit());
+  gh.factory<IUrlConfig>(() => UrlConfig(), registerFor: {_prod});
+  gh.factory<IUrlConfig>(() => StagingUrlConfig(), registerFor: {_test});
+  gh.factory<IUrlConfig>(() => LocalUrlConfig(), registerFor: {_dev});
   gh.lazySingleton<AuthAnalytics>(() => AuthAnalytics(get<FirebaseService>()));
   gh.lazySingleton<AuthApi>(
       () => AuthApi(get<FirebaseService>(), get<FirestoreService>()));

@@ -1,10 +1,25 @@
-# DDDBF (Domain Driven Design | Bloc | Auto_route | Firebase)
-
-- [DDD folder architecture:](#domain-driven-design)
+## DDDBF (Domain Driven Design | Bloc | Auto_route | Firebase)
 
 This is an opinionated starter project that is heavy inspired by [ResoCoder's DDD series](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
 
-#### <a name="domain-driven-design"></a> Domain Driven Design
+It serves as a comprehensive blueprint for apps that require common
+
+- multiple navigation stacks
+- deep link handling
+- push notification handling
+- authentication (via Firebase Auth)
+
+All within an organized, easily maintainable app structure.
+
+This app has two navigation stacks, as well as a third authentication navigation stack that has a simple login and sign-up flow.
+
+### Table of Contents
+
+1. [Folder architecture](#folder_architecture)
+2. [DDD folder architecture](#domain-driven-design)
+3. [DDD folder architecture](#domain-driven-design)
+
+#### <a name="folder_architecture"></a> Folder architecture
 
 There are 4 folders in this project:
 
@@ -33,9 +48,25 @@ There are 4 folders in this project:
   --- core
   --- auth
 
+#### Navigation
+
+This project comes with a bottom navigation bar and 2 navigation stacks. This is a custom implementation of a bottom navigation bar that doesn't use the BottomNavigationBar widget, which allows for more customization over the bottom navbar in terms of appearance and behaviour.
+
+All relevant code for the bottom navigation bar is in `presentation/widgets/core/navigation`
+
+Nested navigators are used to handle each separate navigation stack. Nested navigators may be found in `presentation/navigation/auth/auth_navigator.dart` and are responsible for:
+
+- providing an `ExtendedNavigator` widget which builds all the necessary routes for that stack via `auto_route`
+- providing all blocs and cubits required for that navigations stack
+
+In order to show the appropriate navigation stack in the app, an `IndexedStack` widget is used in conjunction with the Navigation Cubit (`application/navigation/navigation/cubit`). The file that handles which navigation stack is acutally being shown is in `presentation/app.dart`. In this navigation setup, we gain the following advantages:
+
+- Preserved state for each stack so you can go back and forth between stack without losing where you were
+- Cleaner and simpler navigation since each navigation stack has it's own navigator
+
 #### Bloc state management
 
-This project starts out with 2 Cubits in the application folder that handle the 2 most fundamental aspects of 80% of apps:
+This project starts out with 2 Cubits that wrap the entirety of the app, which handle:
 
 1. Navigation
 2. Authentication
@@ -44,33 +75,27 @@ The navigation cubit handles showing and hiding the bottom navigation bar, as we
 
 The authentication cubit handles the current authentication state (logged in or loggged out), and the user fields in each of those states. Read more about authenticaton below.
 
-States are all handled by Freezed. Please note that navigation state is straightforward with no unions while authentication state can only be one of two union states: `AuthState.loggedIn` or `AuthState.loggedOut`. This is important to highlight since these are 2 distinctly different ways of setting up Freezed that have consequences down the road in how the classes are used.
-
-#### Navigation
-
-This project comes with a bottom navigation bar and 2 navigation stacks. This is a custom implementation without using the default BottomNavigationBar widget for the following reasons:
-
-- More customization over the bottom navbar appearances and animations
-- more control on when it is shown/hidden
-
-All relevant code for the bottom navigation bar is in `presentation/widgets/core/navigation`
-
-Nested navigators are used to handle each separate navigation stack. These nested navigators are combined with an IndexedStack widget and Navigation cubit in `presentation/app.dart` to handle switching between navigation stacks. The advantages of this approach are listed below:
-
-- Preserved state for each stack so you can go back and forth between stack without losing where you were
-- Cleaner and simpler navigation since each navigation stack has it's own navigator
+States are all handled by Freezed. Please note that navigation state is straightforward with no unions while authentication state can only be one of two union states: `AuthState.loggedIn` or `AuthState.loggedOut`. This is important to highlight since these are 2 distinctly different ways of setting up Freezed classes that have consequences down the road in how the classes may be used.
 
 #### Authentication
 
-Google's Firebase auth is used in this project, specifically only email and password (no oauth flows).
+Google's Firebase auth is used in this project, specifically:
 
-#### HTTP Requesets
+- sign up with email and password
+- no ouath
+
+#### HTTP Requests
 
 Dio
 
-#### Dependency Injection
+##### Success
 
-Get It + Injectable
+-
+
+##### Failure
+
+- HTTP Errors are caught and turned into `Failure` objects
+- These Failure objects are propogated to the UI via `showErrorFlushbar`
 
 #### Database
 

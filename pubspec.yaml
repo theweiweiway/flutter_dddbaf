@@ -1,8 +1,5 @@
 name: flutter_dddbaf
 description: A new Flutter project.
-
-# The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
@@ -13,10 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
   # Firebase dependencies
-  firebase_core: 0.5.2
+  firebase_core: ^0.5.2
   firebase_auth: ^0.18.3
   firebase_messaging: ^7.0.3
   firebase_analytics: ^6.2.0
+  firebase_dynamic_links: ^0.6.2
   cloud_firestore: ^0.14.3
   # State management
   flutter_bloc: ^6.1.1

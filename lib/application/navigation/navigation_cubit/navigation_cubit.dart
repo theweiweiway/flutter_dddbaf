@@ -1,6 +1,6 @@
 import 'package:flutter_dddbaf/application/navigation/navigation_cubit/navigation_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/presentation/navigation/navigators.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

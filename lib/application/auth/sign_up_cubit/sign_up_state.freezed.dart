@@ -66,7 +66,6 @@ abstract class $SignUpStateCopyWith<$Res> {
   $SignUpDataCopyWith<$Res> get signUpData;
   $SuccessCopyWith<$Res> get success;
   $AuthFailureCopyWith<$Res> get authFailure;
-  $EScreenCopyWith<$Res> get redirectTo;
 }
 
 /// @nodoc
@@ -125,16 +124,6 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
       return _then(_value.copyWith(authFailure: value));
     });
   }
-
-  @override
-  $EScreenCopyWith<$Res> get redirectTo {
-    if (_value.redirectTo == null) {
-      return null;
-    }
-    return $EScreenCopyWith<$Res>(_value.redirectTo, (value) {
-      return _then(_value.copyWith(redirectTo: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -156,8 +145,6 @@ abstract class _$SignUpStateCopyWith<$Res>
   $SuccessCopyWith<$Res> get success;
   @override
   $AuthFailureCopyWith<$Res> get authFailure;
-  @override
-  $EScreenCopyWith<$Res> get redirectTo;
 }
 
 /// @nodoc

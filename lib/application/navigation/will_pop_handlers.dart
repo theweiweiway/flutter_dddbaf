@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/presentation/navigation/navigators.dart';
 import 'navigation_cubit/navigation_cubit.dart';
 
 void _selectTab(BuildContext context, ENavigator currentNavigator) {
@@ -23,6 +23,7 @@ Future<bool> handleAppWillPop(
   ENavigator currentNavigator,
 ) async {
   if (navigatorKeys[ENavigator.auth].currentState != null) {
+    // If the app is currently in the auth stack
     final shouldPop =
         !await navigatorKeys[ENavigator.auth].currentState.maybePop();
     if (shouldPop == true) {

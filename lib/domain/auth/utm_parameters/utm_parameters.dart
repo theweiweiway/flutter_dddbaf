@@ -19,22 +19,32 @@ abstract class UtmParameters with _$UtmParameters {
       _$UtmParametersFromJson(json);
 
   void writeToHive() {
-    var box = Hive.box('utmParameters');
-    box.put('source', this.source);
-    box.put('medium', this.medium);
-    box.put('campaign', this.campaign);
-    box.put('term', this.term);
-    box.put('content', this.content);
+    if ((this.source != null && this.source.isNotEmpty) ||
+        (this.medium != null && this.medium.isNotEmpty) ||
+        (this.campaign != null && this.campaign.isNotEmpty)) {
+      var box = Hive.box('utmParameters');
+      box.put('source', this.source);
+      box.put('medium', this.medium);
+      box.put('campaign', this.campaign);
+      box.put('term', this.term);
+      box.put('content', this.content);
+    }
   }
 
   UtmParameters readFromHive() {
     var box = Hive.box('utmParameters');
-    return UtmParameters(
-      source: box.get('source'),
-      medium: box.get('medium'),
-      campaign: box.get('campaign'),
-      term: box.get('term'),
-      content: box.get('content'),
-    );
+    if ((box.get('source') != null && box.get('source').isNotEmpty) ||
+        (box.get('medium') != null && box.get('medium').isNotEmpty) ||
+        (box.get('campaign') != null && box.get('campaign').isNotEmpty)) {
+      return null;
+    } else {
+      return UtmParameters(
+        source: box.get('source'),
+        medium: box.get('medium'),
+        campaign: box.get('campaign'),
+        term: box.get('term'),
+        content: box.get('content'),
+      );
+    }
   }
 }

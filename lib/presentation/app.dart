@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dddbaf/application/auth/auth_cubit/auth_cubit.dart';
 import 'package:flutter_dddbaf/application/auth/auth_cubit/auth_state.dart';
+import 'package:flutter_dddbaf/application/core/dynamic_links_handler.dart';
+import 'package:flutter_dddbaf/application/core/push_notifications_handler.dart';
 import 'package:flutter_dddbaf/application/navigation/navigation_cubit/navigation_cubit.dart';
 import 'package:flutter_dddbaf/application/navigation/navigation_cubit/navigation_state.dart';
 import 'package:flutter_dddbaf/application/navigation/will_pop_handlers.dart';
-import 'package:flutter_dddbaf/domain/navigation/navigators.dart';
+import 'package:flutter_dddbaf/presentation/navigation/navigators.dart';
 import 'package:flutter_dddbaf/infrastructure/core/firebase/firebase_service.dart';
 import 'package:flutter_dddbaf/injection.dart';
 import 'package:flutter_dddbaf/presentation/navigation/auth/auth_navigator.dart';
@@ -32,7 +34,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     _authCubit = BlocProvider.of<AuthCubit>(context);
     _navigationCubit = BlocProvider.of<NavigationCubit>(context);
 
-    // Handle authentication state changes here
+    /// Handle authentication state changes here
     getIt<FirebaseService>().auth.authStateChanges().listen((User user) {
       if (user == null) {
         _authCubit.signOut();
@@ -41,8 +43,9 @@ class _AppState extends State<App> with WidgetsBindingObserver {
       }
     });
 
-    // handleDynamicLinks(context: context);
-    // handleFcmNotif(context: context);
+    /// Handle dynamic links and push notifications here
+    dynamicLinksHandler(context: context);
+    pushNotificationsHandler(context: context);
   }
 
   @override
@@ -65,13 +68,14 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         listenWhen: (previous, current) {
           if (previous is LoggedIn && current is LoggedOut) {
             touched.clear();
-            // change the navigator to the auth navigator when user becomes logged out
+            // Change the navigator to the auth navigator stack when user becomes logged out
             _navigationCubit.changeNavigator(ENavigator.auth);
           }
           if (previous is LoggedOut && current is LoggedIn) {
             _firebaseMessaging.requestNotificationPermissions();
             touched.remove(ENavigator.auth);
-            // change the navigator to the primary search navigator when user becomes logged in
+
+            /// Change the navigator to the primary search navigator stack when user becomes logged in
             _navigationCubit.changeNavigator(ENavigator.search);
           }
           return false;
@@ -84,8 +88,6 @@ class _AppState extends State<App> with WidgetsBindingObserver {
             builder: (BuildContext context, NavigationState navigationState) {
               return WillPopScope(
                 onWillPop: () async {
-                  /// handle the android back button so that the app always pops back to
-                  /// the search stack home screen before exiting the app
                   return await handleAppWillPop(
                       context, navigationState.navigator);
                 },
