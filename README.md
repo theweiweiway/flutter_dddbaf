@@ -1,23 +1,25 @@
-## DDDBF (Domain Driven Design | Bloc | Auto_route | Firebase)
+# DDDBF (Domain Driven Design | Bloc | Auto_route | Firebase)
 
-This is an opinionated starter project that is heavy inspired by [ResoCoder's DDD series](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
+This is a super opinionated starter project that is heavy inspired by [ResoCoder's DDD series](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
 
-It serves as a comprehensive blueprint for apps that require common
+It serves as a comprehensive blueprint for many of the apps that are created nowadays, and includes the following capabilities:
 
-- multiple navigation stacks
+- multiple bottom navigation bar stacks (with persistent state across stacks)
 - deep link handling
 - push notification handling
 - authentication (via Firebase Auth)
+- http requests
 
-All within an organized, easily maintainable app structure.
+## Table of Contents
 
-This app has two navigation stacks, as well as a third authentication navigation stack that has a simple login and sign-up flow.
-
-### Table of Contents
-
+1. [Dependencies](#dependencies)
 1. [Folder architecture](#folder_architecture)
-2. [DDD folder architecture](#domain-driven-design)
-3. [DDD folder architecture](#domain-driven-design)
+1. [HTTP Requests](#http_requests)
+1. [Navigation](#navigation)
+
+### <a name="dependencies"></a> Dependencies
+
+This app uses many popular dependencies to handle core functionalities of the app. Please see the `pubspec.yaml` for more information about the dependencies. Thanks to Felix Angelov, Remi Rousselet and Milad Alakarie for creating many of these amazing libraries.
 
 #### <a name="folder_architecture"></a> Folder architecture
 
@@ -50,13 +52,13 @@ There are 4 folders in this project:
 
 #### Navigation
 
-This project comes with a bottom navigation bar and 2 navigation stacks. This is a custom implementation of a bottom navigation bar that doesn't use the BottomNavigationBar widget, which allows for more customization over the bottom navbar in terms of appearance and behaviour.
+This project comes with a bottom navigation bar that has 2 navigation stacks (Search stack, and Account stack). This is a custom implementation of a bottom navigation bar that doesn't use the Material BottomNavigationBar widget, which allows for more customization over the bottom navbar in terms of appearance and behaviour.
 
 All relevant code for the bottom navigation bar is in `presentation/widgets/core/navigation`
 
 Nested navigators are used to handle each separate navigation stack. Nested navigators may be found in `presentation/navigation/auth/auth_navigator.dart` and are responsible for:
 
-- providing an `ExtendedNavigator` widget which builds all the necessary routes for that stack via `auto_route`
+- providing an `ExtendedNavigator` widget which builds all the necessary routes for that stack via the `auto_route` library
 - providing all blocs and cubits required for that navigations stack
 
 In order to show the appropriate navigation stack in the app, an `IndexedStack` widget is used in conjunction with the Navigation Cubit (`application/navigation/navigation/cubit`). The file that handles which navigation stack is acutally being shown is in `presentation/app.dart`. In this navigation setup, we gain the following advantages:
@@ -71,11 +73,11 @@ This project starts out with 2 Cubits that wrap the entirety of the app, which h
 1. Navigation
 2. Authentication
 
-The navigation cubit handles showing and hiding the bottom navigation bar, as well as the currently selected navigation stack. Read more in the navigation section below.
+The navigation cubit handles showing and hiding the bottom navigation bar, as well as the currently selected navigation stack.
 
 The authentication cubit handles the current authentication state (logged in or loggged out), and the user fields in each of those states. Read more about authenticaton below.
 
-States are all handled by Freezed. Please note that navigation state is straightforward with no unions while authentication state can only be one of two union states: `AuthState.loggedIn` or `AuthState.loggedOut`. This is important to highlight since these are 2 distinctly different ways of setting up Freezed classes that have consequences down the road in how the classes may be used.
+Bloc and Cubit States are handled by the `Freezed` library. Please note that navigation state is straightforward with no unions while the authentication state can only be one of two union states: `AuthState.loggedIn` or `AuthState.loggedOut`. This is important to highlight since these are 2 distinctly different ways of setting up Freezed classes that have consequences down the road in how the classes are used.
 
 #### Authentication
 
@@ -116,6 +118,6 @@ Google Analytics
 
 ## Setup
 
-- added the line `pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '6.26.0'` between the lines `target 'Runner' do` and `use_frameworks!` in `ios/Podfile` - [This improves iOS Build for Firebase](https://firebase.flutter.dev/docs/overview/)
+- added the line `pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '6.26.0'` between the lines `target 'Runner' do` and `use_frameworks!` in `ios/Podfile` - [This improves iOS build times for Firebase](https://firebase.flutter.dev/docs/overview/)
 
 ## Problems Encountered

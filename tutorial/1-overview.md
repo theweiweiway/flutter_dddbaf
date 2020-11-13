@@ -1,0 +1,7 @@
+- ddd
+- http requests
+- navigation
+- state management setup
+- push notifications and dynamic links
+- auth
+- di

@@ -1,0 +1,4 @@
+- auto_route
+- nested navigators
+- custom bottom navigation bar
+- navigation cubit
