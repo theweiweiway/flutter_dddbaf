@@ -1,3 +1,5 @@
+# plz dont use this it's outdated and its shit
+
 # DDDBF (Domain Driven Design | Bloc | Auto_route | Firebase)
 
 This is a super opinionated starter project that is heavy inspired by [ResoCoder's DDD series](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U).
